@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV Parsing Automation System — Charles Taylor</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>body { opacity: 0; }</style>
+</head>
+<body>
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+  <nav class="nav">
+    <a href="../index.html" class="nav-logo">CHARLES TAYLOR</a>
+    <div class="nav-links">
+      <a href="../index.html#xr-projects" class="nav-link">3D / XR</a>
+      <a href="../index.html#ux-projects" class="nav-link">UX / UI</a>
+      <a href="../index.html#automation" class="nav-link active">Automation</a>
+      <a href="../index.html#contact" class="nav-cta">Let's Connect ↗</a>
+    </div>
+    <button class="nav-menu-btn" aria-label="Open menu"><span></span><span></span></button>
+  </nav>
+  <div class="mobile-menu">
+    <a href="../index.html#xr-projects">3D / XR</a>
+    <a href="../index.html#ux-projects">UX / UI</a>
+    <a href="../index.html#automation">Automation</a>
+    <a href="../index.html#contact">Let's Connect</a>
+  </div>
+
+  <div class="project-hero">
+    <div class="container">
+      <a href="../index.html" class="breadcrumb">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        All Projects
+      </a>
+      <div class="project-hero-meta">
+        <span class="meta-tag blue">Automation</span>
+        <span class="meta-tag">2024</span>
+        <span class="meta-tag">WEEM</span>
+        <span class="meta-tag">GPT-4o · Zapier · HubSpot · Google Drive</span>
+      </div>
+      <h1 class="project-title">CV Parsing<br/><em>Automation</em><br/>System</h1>
+      <p class="project-intro">
+        An improved CV scraping automation in Zapier — reading CV names from a Google Drive folder, matching them with HubSpot, and extracting relevant information using GPT prompts for automatic display in HubSpot contact forms.
+      </p>
+      <div class="project-hero-details reveal">
+        <div class="detail-item"><span class="detail-label">Role</span><span class="detail-value">Process Automation</span></div>
+        <div class="detail-item"><span class="detail-label">Stack</span><span class="detail-value">GPT-4o · Zapier · HubSpot</span></div>
+        <div class="detail-item"><span class="detail-label">Company</span><span class="detail-value">WEEM</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cover image -->
+  <div style="max-width:1280px;margin:0 auto;padding:40px 40px 20px;">
+    <img src="../../Brand_assets/My current portfolio/CV Parsing Automation Page/CV Parsing Automation System 3rd Pic.webp"
+         alt="CV Parsing Automation System" style="width:100%;height:auto;display:block;border-radius:var(--radius-lg);" loading="lazy" />
+  </div>
+
+
+  <!-- Overview -->
+  <div class="project-section">
+    <div class="container">
+      <div class="content-grid">
+        <div>
+          <div class="section-label">Project Overview</div>
+          <h2 class="section-h2">Automating CV Data Extraction</h2>
+          <div class="section-body">
+            <p>
+              This project improved an existing CV scraping automation in Zapier, designed to read CV names from a Drive folder, match them with the company's HubSpot database, and extract relevant information using GPT prompts for display in HubSpot contact forms.
+            </p>
+            <p>
+              The workflow required clear formatting of CV file names, such as "CV WEEM - First NAME - Fr/En," for proper identification in HubSpot. Integrating the GPT-4o API improved data extraction, with automated scripts minimising errors. An email alert system was in place to notify the team of any processing issues.
+            </p>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-1">
+          <div class="section-label">Key Challenges</div>
+          <div class="section-body">
+            <p>
+              Some challenges included managing access between Drive and Zapier, ensuring GPT-4o returned only the required output, and dealing with varied CV formats. HubSpot connections would fail when hyphens were used incorrectly (e.g., "CV-WEEM - Name"), when names were reversed (e.g., "Surname Firstname"), or when accents were missing (e.g., "Marie Clenet" instead of "Marie Clénet").
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Error email -->
+  <div class="project-section">
+    <div class="container">
+      <div class="section-label">Error Email</div>
+      <h2 class="section-h2">A Significant Debugging Load</h2>
+      <p class="section-body" style="max-width:720px;margin-bottom:28px;">
+        Error emails were often received, representing a significant amount of debugging work per week — each indicating a parsing failure requiring investigation.
+      </p>
+      <div class="reveal">
+        <img src="../../Brand_assets/My current portfolio/CV Parsing Automation Page/CV Parsing Automation System  1st pic.avif"
+             alt="Error email" loading="lazy"
+             style="max-width:720px;width:100%;height:auto;display:block;border-radius:var(--radius-lg);border:1px solid var(--line);" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Old Zap -->
+  <div class="project-section">
+    <div class="container">
+      <div class="section-label">Old Zap</div>
+      <h2 class="section-h2">The Previous Workflow</h2>
+      <div class="reveal" style="margin-top:28px;">
+        <img src="../../Brand_assets/My current portfolio/CV Parsing Automation Page/CV Parsing Automation System 2nd Pic.avif"
+             alt="Old Zapier workflow" loading="lazy"
+             style="max-width:720px;width:100%;height:auto;display:block;border-radius:var(--radius-lg);border:1px solid var(--line);" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Solutions -->
+  <div class="project-section">
+    <div class="container">
+      <div class="section-label">Solutions</div>
+      <h2 class="section-h2">Addressing the Challenges</h2>
+      <div class="section-body" style="max-width:760px;">
+        <p>
+          Solutions involved script adjustments for different CV layouts and direct use of Drive document IDs. Enhanced GPT prompts ensured focused outputs, improving name recognition and reducing errors. The final automation processed various file types and included an error management system that triggered email alerts.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Prompt solving the issue -->
+  <div class="project-section">
+    <div class="container">
+      <div class="section-label">Prompt Engineering</div>
+      <h2 class="section-h2">Prompt Solving the Issue</h2>
+      <div class="reveal" style="margin-top:28px;">
+        <img src="../../Brand_assets/My current portfolio/CV Parsing Automation Page/CV Parsing Automation System 3rd Pic.webp"
+             alt="GPT prompt solution" loading="lazy"
+             style="max-width:720px;width:100%;height:auto;display:block;border-radius:var(--radius-lg);border:1px solid var(--line);" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Final Zap -->
+  <div class="project-section">
+    <div class="container">
+      <div class="section-label">Final Zap</div>
+      <h2 class="section-h2">The Optimised Workflow</h2>
+      <div class="reveal" style="margin-top:28px;">
+        <img src="../../Brand_assets/My current portfolio/CV Parsing Automation Page/CV Parsing Automation System  4th Final zap pic.avif"
+             alt="Final Zapier workflow" loading="lazy"
+             style="max-width:720px;width:100%;height:auto;display:block;border-radius:var(--radius-lg);border:1px solid var(--line);" />
+      </div>
+    </div>
+  </div>
+
+  <div class="conclusion-section reveal">
+    <h2>Conclusion</h2>
+    <p>
+      This project showed that reliable automation requires as much attention to edge cases as to the happy path. By iteratively refining GPT prompts, adjusting scripts for varied CV layouts, and building a robust error alerting system, the pipeline moved from a frequent source of manual debugging to a dependable intake process — saving the team significant time each week.
+    </p>
+  </div>
+
+  <a href="../index.html#contact" class="next-project">
+    <div><div class="next-label">Get in Touch</div><div class="next-title">Let's work together →</div></div>
+    <div class="next-arrow">↗</div>
+  </a>
+
+  <footer>
+    <span class="footer-logo">CHARLES TAYLOR</span>
+    <span>UX Researcher & Product Manager</span>
+    <a href="../index.html" style="color:var(--blue);">← Back to portfolio</a>
+  </footer>
+  <script src="../js/main.js"></script>
+</body>
+</html>

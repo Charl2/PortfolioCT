@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NHL — Rediscovered in 3D — Charles Taylor</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    body { opacity: 0; }
+    @media (max-width: 768px) { #pipVideo { display: none !important; } }
+    #pipVideo {
+      display: none;
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 420px;
+      height: 236px;
+      z-index: 9999;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+      opacity: 1 !important;
+      isolation: isolate;
+      will-change: transform;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    #pipVideo:hover {
+      transform: scale(1.4) translate(-15%, -12%);
+      box-shadow: 0 20px 64px rgba(0,0,0,0.6);
+    }
+    #pipVideo video { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 1 !important; }
+    #pipClose {
+      position: absolute;
+      top: 6px; right: 6px;
+      width: 22px; height: 22px;
+      background: rgba(0,0,0,0.55);
+      border-radius: 50%;
+      border: none;
+      color: #fff;
+      font-size: 13px;
+      line-height: 22px;
+      text-align: center;
+      cursor: pointer;
+      z-index: 10000;
+    }
+    .section-divider {
+      display: flex; align-items: center; gap: 24px;
+      padding: 48px 0 0;
+    }
+    .section-divider-line { flex: 1; height: 1px; background: var(--line); }
+    .section-divider-label {
+      font-family: var(--ff-display); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--ink-light); white-space: nowrap;
+    }
+    /* ── Decision Cards ── */
+    .decision-cards { display: flex; flex-direction: column; gap: 20px; }
+    .decision-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--blue);
+      border-radius: var(--radius-lg);
+      padding: 32px 36px;
+    }
+    .decision-card-header {
+      display: flex; align-items: baseline; gap: 14px; margin-bottom: 22px;
+    }
+    .decision-card-num {
+      font-family: var(--ff-display); font-size: 11px; font-weight: 700;
+      color: var(--blue); letter-spacing: 0.14em; flex-shrink: 0;
+    }
+    .decision-card-title {
+      font-family: var(--ff-display); font-size: 18px; font-weight: 700;
+      color: var(--ink); line-height: 1.3;
+    }
+    .decision-cols {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--line); padding-top: 22px;
+    }
+    .decision-col { padding-right: 28px; }
+    .decision-col + .decision-col { padding-left: 28px; padding-right: 28px; border-left: 1px solid var(--line); }
+    .decision-col:last-child { padding-right: 0; }
+    .decision-col-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--blue); margin-bottom: 10px;
+    }
+    .decision-col p { font-size: 14px; color: var(--ink-mid); line-height: 1.65; margin: 0; }
+    .decision-result-tag {
+      display: inline-block; margin-top: 12px; padding: 5px 13px;
+      background: rgba(0,90,255,0.08); color: var(--blue); border-radius: 100px;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.03em;
+    }
+    @media (max-width: 768px) {
+      .decision-card { padding: 22px 20px; }
+      .decision-cols { grid-template-columns: 1fr; }
+      .decision-col { padding: 0 0 18px; border-left: none !important; }
+      .decision-col + .decision-col { padding-left: 0; border-top: 1px solid var(--line); padding-top: 18px; }
+      .decision-col:last-child { padding-bottom: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+  <nav class="nav">
+    <a href="../index.html" class="nav-logo">CHARLES TAYLOR</a>
+    <div class="nav-links">
+      <a href="../index.html#xr-projects" class="nav-link active">3D / XR</a>
+      <a href="../index.html#ux-projects" class="nav-link">UX / UI</a>
+      <a href="../index.html#automation" class="nav-link">Automation</a>
+      <a href="../index.html#contact" class="nav-cta">Let's Connect ↗</a>
+    </div>
+    <button class="nav-menu-btn" aria-label="Open menu"><span></span><span></span></button>
+  </nav>
+  <div class="mobile-menu">
+    <a href="../index.html#xr-projects">3D / XR</a>
+    <a href="../index.html#ux-projects">UX / UI</a>
+    <a href="../index.html#automation">Automation</a>
+    <a href="../index.html#contact">Let's Connect</a>
+  </div>
+
+  <div class="project-hero">
+    <div class="container">
+      <a href="../index.html" class="breadcrumb">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        All Projects
+      </a>
+      <div class="project-hero-meta">
+        <span class="meta-tag blue">3D / XR</span>
+        <span class="meta-tag">Aug 2025 – Mar 2026</span>
+        <span class="meta-tag">Immersiv.io</span>
+        <span class="meta-tag">NHL · Apple</span>
+      </div>
+      <h1 class="project-title">NHL Rediscovered<br/><em>in 3D</em><br/>For Fans &amp; Coaches</h1>
+      <p class="project-intro">
+        Two XR products for the NHL — a spatial coaching tool on Apple Vision Pro used by 12 teams, and a fan-first mobile experience bringing 3D match analysis to millions. The partnership resulted in Immersiv.io's largest contract to date.
+      </p>
+      <div class="project-hero-details reveal">
+        <div class="detail-item"><span class="detail-label">Available on</span><span class="detail-value">Apple Vision Pro · NHL Mobile App</span></div>
+        <div class="detail-item"><span class="detail-label">Role</span><span class="detail-value">Product Manager</span></div>
+        <div class="detail-item"><span class="detail-label">Client</span><span class="detail-value">NHL &amp; Apple</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cover video -->
+  <div id="coverWrap" style="max-height:560px;overflow:hidden;">
+    <video id="cover-vid" autoplay muted playsinline onloadedmetadata="this.playbackRate=1.2"
+           style="width:100%;height:560px;object-fit:cover;display:block;">
+      <source src="../../Brand_assets/My current portfolio/NHL Page/Pres Clean NHL.mp4" type="video/mp4" />
+    </video>
+  </div>
+  <!-- PiP clone -->
+  <div id="pipVideo">
+    <button id="pipClose" onclick="document.getElementById('pipVideo').style.display='none';window._pipDismissed=true;">✕</button>
+    <video id="pipVid" autoplay muted playsinline></video>
+  </div>
+  <script>
+    (function() {
+      window._pipDismissed = false;
+      var vid = document.getElementById('cover-vid');
+      var pipVideo = document.getElementById('pipVideo');
+      var pipVid = document.getElementById('pipVid');
+      var sources = [
+        '../../Brand_assets/My current portfolio/NHL Page/Pres Clean NHL.mp4',
+        '../../Brand_assets/My current portfolio/NHL Page/Immersiv mode - Clean.mp4'
+      ];
+      var current = 0;
+
+      vid.addEventListener('ended', function() {
+        current = (current + 1) % sources.length;
+        vid.src = sources[current];
+        vid.playbackRate = 1.2;
+        vid.play();
+        pipVid.src = sources[current];
+        pipVid.playbackRate = 1.2;
+        pipVid.play().catch(function(){});
+      });
+
+      pipVid.src = sources[0];
+      pipVid.playbackRate = 1.2;
+
+      var coverWrap = document.getElementById('coverWrap');
+
+      window.addEventListener('scroll', function() {
+        if (window._pipDismissed) return;
+        var walkthrough = document.getElementById('walkthroughVid');
+        var coverBottom = coverWrap.getBoundingClientRect().bottom;
+        var walkthroughTop = walkthrough ? walkthrough.getBoundingClientRect().top : 999999;
+        var coverHeight = coverWrap.offsetHeight;
+        var walkthroughHeight = walkthrough ? walkthrough.offsetHeight : 0;
+        var show = coverBottom < coverHeight * 0.5 && coverBottom < coverHeight && walkthroughTop > window.innerHeight - walkthroughHeight * 0.5;
+        if (show && pipVideo.style.display !== 'block') {
+          pipVideo.style.display = 'block';
+          pipVid.play().catch(function(){});
+        } else if (!show) {
+          pipVideo.style.display = 'none';
+        }
+      }, { passive: true });
+    })();
+  </script>
+
+
+  <!-- Key numbers -->
+  <div class="project-section">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;" class="reveal">
+        <div style="padding:36px;background:var(--blue);border-radius:var(--radius-lg);color:var(--white);text-align:center;">
+          <div style="font-family:var(--ff-display);font-size:52px;font-weight:900;margin-bottom:6px;line-height:1;" data-count="1.4" data-suffix="M$" data-decimals="1">1.4M$</div>
+          <div style="font-size:14px;opacity:0.8;">Total contract value</div>
+        </div>
+        <div style="padding:36px;background:var(--white);border-radius:var(--radius-lg);border:1px solid var(--line);text-align:center;">
+          <div style="font-family:var(--ff-display);font-size:52px;font-weight:900;color:var(--blue);margin-bottom:6px;line-height:1;" data-count="12" data-suffix="">12</div>
+          <div style="font-size:14px;color:var(--ink-mid);">Teams using the coaching app</div>
+        </div>
+        <div style="padding:36px;background:var(--white);border-radius:var(--radius-lg);border:1px solid var(--line);text-align:center;">
+          <div style="font-family:var(--ff-display);font-size:52px;font-weight:900;color:var(--blue);margin-bottom:6px;line-height:1;" data-count="2" data-suffix="">2</div>
+          <div style="font-size:14px;color:var(--ink-mid);">Fan testing sessions — US &amp; Canada</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ PART 1: COACHING APP ════════════════ -->
+  <div class="project-section">
+    <div class="container">
+      <div class="section-divider" style="padding-top:0;">
+        <div class="section-divider-line"></div>
+        <div class="section-divider-label">Part 01 — XR Coaching App</div>
+        <div class="section-divider-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-section" style="padding-top:52px;">
+    <div class="container">
+      <div class="content-grid">
+        <div>
+          <div class="section-label">My Role</div>
+          <h2 class="section-h2">Product Manager &amp; Contract Owner</h2>
+          <div class="section-body">
+            <p>
+              The NHL was Immersiv.io's largest client, and my mandate was to renew and grow the relationship. I owned the stakeholder relationship directly — weekly C-level meetings with the NHL's Director of Innovation, Director of Data, and coaching leads, plus daily Slack contact to flag data issues, route them to the right people, and present UX decisions with clear options for evaluation.
+            </p>
+            <p>
+              Internally, I defined scope, structured the product backlog, and owned the roadmap. Every decision discussed informally on Slack was formalized at the next weekly — keeping alignment tight and documentation consistent. That cadence was key to delivering the $1.4M contract renewal across two NHL seasons.
+            </p>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-1">
+          <div class="section-label">Project Overview</div>
+          <div class="section-body">
+            <p>
+              Developed in partnership with Apple for Apple Vision Pro, the NHL XR Coaching App gives coaching staff a spatial tool to review games in 3D, analyze player performance, and present tactical insights. Within the first season, 12 teams adopted the app — with the Edmonton Oilers, the best-performing team that season, among the most engaged users.
+            </p>
+            <p>
+              The use cases that emerged told the story. Teams used the app to scout players, settle coaching disagreements, and analyze referee decisions. In one case, a coaching staff used the Player POV feature to review a goalkeeper's field of vision on a disputed play — and identified a foul they should have challenged live. That wasn't a hypothetical benefit. It was the product working exactly as intended.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Coaching App video -->
+  <div class="project-section">
+    <div class="container">
+      <div class="section-label">App Presentation</div>
+      <h2 class="section-h2">Coaching App Walkthrough</h2>
+      <div class="media-block reveal" style="margin-top:28px;">
+        <video id="walkthroughVid" data-autoplay muted loop playsinline controls onloadedmetadata="this.playbackRate=1.4">
+          <source src="../../Brand_assets/My current portfolio/NHL Page/NHL Pres 2.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ PART 2: MOBILE FAN APP ══════════════ -->
+  <div class="project-section">
+    <div class="container">
+      <div class="section-divider" style="padding-top:0;">
+        <div class="section-divider-line"></div>
+        <div class="section-divider-label">Part 02 — Fan Experience</div>
+        <div class="section-divider-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-section" style="padding-top:52px;">
+    <div class="container">
+      <div class="content-grid">
+        <div>
+          <div class="section-label">My Role</div>
+          <h2 class="section-h2">Fixing What Blocked the Features — Before Fans Arrived</h2>
+          <div class="section-body">
+            <p>
+              My goal was clear: get the app ready for fan testing without wasting it on surface-level issues. I led the kickoff, conducted a full product audit, and applied one core principle — fix what's blocking existing features, not chasing new ones. That framing shaped every prioritization decision.
+            </p>
+            <p>
+              I structured a ranked improvement plan and presented it to C-level stakeholders. The result: two fan testing sessions in the US and Canada — each 1h30 long — run by the NHL's dedicated fan research team alongside third-party specialist consultants. The product had to be good enough that testers could evaluate the concept, not fight the interface.
+            </p>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-1">
+          <div class="media-block">
+            <img src="../../Brand_assets/My current portfolio/NHL Page/NHL Mobile app image.webp"
+                 alt="NHL Mobile App" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-section" style="padding-top:52px;">
+    <div class="container">
+      <div class="section-label">Project Overview</div>
+      <h2 class="section-h2">3D Hockey for Every Fan</h2>
+      <div class="section-body" style="max-width:760px;margin-bottom:32px;">
+        <p>
+          Building on the XR capabilities of the Coaching App, this fan-facing experience is accessible through the official NHL mobile app. Fans follow games live or in replay through a 3D recreation of the ice — in a realistic or gamified style — exploring player-level stats in real time and engaging with matches in a more immersive, data-driven way.
+        </p>
+      </div>
+      <div class="media-block reveal">
+        <video data-autoplay muted loop playsinline controls>
+          <source src="../../Brand_assets/My current portfolio/NHL Page/NHL Mobile app vid pres.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <!-- Key Decisions -->
+  <div class="project-section">
+    <div class="container">
+      <div class="section-label">Product Decisions</div>
+      <h2 class="section-h2">How I Shaped the Product</h2>
+      <div class="decision-cards" style="margin-top:32px;">
+
+        <div class="decision-card reveal">
+          <div class="decision-card-header">
+            <span class="decision-card-num">01</span>
+            <span class="decision-card-title">Solving Motion Sickness Without Losing Coaching Value</span>
+          </div>
+          <div class="decision-cols">
+            <div class="decision-col">
+              <div class="decision-col-label">Challenge</div>
+              <p>Pure first-person POV caused motion sickness on the headset — camera tracking felt too fast. But coaches needed to see exactly what a player sees to analyse field of vision and on-ice decision-making.</p>
+            </div>
+            <div class="decision-col">
+              <div class="decision-col-label">Decision</div>
+              <p>I pushed for a hybrid: third-person by default so coaches watch the play develop without nausea. When they pause, it switches to first-person — showing the exact player perspective at that moment.</p>
+            </div>
+            <div class="decision-col">
+              <div class="decision-col-label">Outcome</div>
+              <p>Coaches got both — full play context and precise POV analysis. Teams used it for scouting, settling coaching disputes, and in one case identified a foul they should have challenged live.</p>
+              <span class="decision-result-tag">Real-world use by coaching staff in first season</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="decision-card reveal reveal-delay-1">
+          <div class="decision-card-header">
+            <span class="decision-card-num">02</span>
+            <span class="decision-card-title">Keeping the Timeline on One Screen</span>
+          </div>
+          <div class="decision-cols">
+            <div class="decision-col">
+              <div class="decision-col-label">Challenge</div>
+              <p>The original timeline was so cluttered it effectively blocked the feature. The proposed fix was a separate screen — cleaner, but it would break context and add a navigation layer.</p>
+            </div>
+            <div class="decision-col">
+              <div class="decision-col-label">Decision</div>
+              <p>Keep it on one screen, reorganized by NHL periods. Replaced the multi-step period selector with left/right arrows (one tap instead of two). Removed forced reloads when switching periods so users can browse freely.</p>
+            </div>
+            <div class="decision-col">
+              <div class="decision-col-label">Outcome</div>
+              <p>Users could navigate the full match without losing context or disrupting playback. The feature went from effectively blocked to the core interaction of the mobile experience.</p>
+              <span class="decision-result-tag">Core UX unblocked for fan testing</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="decision-card reveal reveal-delay-2">
+          <div class="decision-card-header">
+            <span class="decision-card-num">03</span>
+            <span class="decision-card-title">From 50% to 100% Player Name Visibility</span>
+          </div>
+          <div class="decision-cols">
+            <div class="decision-col">
+              <div class="decision-col-label">Challenge</div>
+              <p>When a player received the puck, their highlighted name was hidden by rink boundary rendering roughly half the time — undermining trust in the data layer for coaching use.</p>
+            </div>
+            <div class="decision-col">
+              <div class="decision-col-label">Decision</div>
+              <p>I pushed to prioritise this fix as part of the pre-testing audit. Fast to fix, high impact — player identification is foundational to every coaching and scouting workflow in the app.</p>
+            </div>
+            <div class="decision-col">
+              <div class="decision-col-label">Outcome</div>
+              <p>100% visibility after the fix. Teams used the corrected view for scouting, coaching disputes, and in one case to retroactively identify a foul that should have been challenged live.</p>
+              <span class="decision-result-tag">100% visibility — up from ~50%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="decision-card reveal reveal-delay-3">
+          <div class="decision-card-header">
+            <span class="decision-card-num">04</span>
+            <span class="decision-card-title">Fix Blockers First — Not New Features</span>
+          </div>
+          <div class="decision-cols">
+            <div class="decision-col">
+              <div class="decision-col-label">Challenge</div>
+              <p>The mobile app had existing features that didn't work properly — and there was pressure to keep adding new capabilities before the scheduled fan testing sessions.</p>
+            </div>
+            <div class="decision-col">
+              <div class="decision-col-label">Decision</div>
+              <p>I led the kickoff with one guiding principle: fix what blocks existing value before chasing new features. I ran a full product audit, ranked issues by impact and feasibility, and structured the first development cycle around that list.</p>
+            </div>
+            <div class="decision-col">
+              <div class="decision-col-label">Outcome</div>
+              <p>Two fan testing sessions — US and Canada, 1h30 each — run by NHL's specialist fan research team alongside third-party consultants. Testers evaluated the concept, not the interface.</p>
+              <span class="decision-result-tag">2 formal fan testing sessions delivered</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Experience overview -->
+  <div class="project-section">
+    <div class="container">
+      <div class="section-label">Experience Overview</div>
+      <h2 class="section-h2">Core Features Across Both Platforms</h2>
+      <div class="deliverables-list reveal" style="margin-top:28px;">
+        <div class="deliverable-item">
+          <div class="deliverable-icon">🏒</div>
+          <div class="deliverable-text">
+            <strong>Game &amp; Team Navigation</strong>
+            <span>Select teams, games, and specific periods to review across mobile and Vision Pro. Past games persist across sessions, enabling efficient repeat usage for both fans and coaching staff.</span>
+          </div>
+          <div class="deliverable-preview">
+            <img src="../../Brand_assets/My current portfolio/NHL Page/NHL 1st square.avif" alt="Game & Team Navigation" loading="lazy" />
+          </div>
+        </div>
+        <div class="deliverable-item">
+          <div class="deliverable-icon">⏱️</div>
+          <div class="deliverable-text">
+            <strong>Timeline-Driven Match Exploration</strong>
+            <span>A fully interactive timeline with play, pause, rewind, fast-forward, and frame-by-frame navigation. Filter by events (goals, shots, faceoffs, shifts), add bookmarks, and navigate matches for both casual review and tactical analysis.</span>
+          </div>
+          <div class="deliverable-preview">
+            <img src="../../Brand_assets/My current portfolio/NHL Page/NHL 2nd square.avif" alt="Timeline Match Exploration" loading="lazy" />
+          </div>
+        </div>
+        <div class="deliverable-item">
+          <div class="deliverable-icon">📊</div>
+          <div class="deliverable-text">
+            <strong>Player Performance Insights</strong>
+            <span>Player-level insights surface directly within the 3D recreation — shifts, key events, time on ice, and contextual stats. Supports fan engagement on mobile and professional scouting and coaching workflows on Vision Pro.</span>
+          </div>
+          <div class="deliverable-preview">
+            <img src="../../Brand_assets/My current portfolio/NHL Page/NHL 3rd square.webp" alt="Player Performance Insights" loading="lazy" />
+          </div>
+        </div>
+        <div class="deliverable-item">
+          <div class="deliverable-icon">🎯</div>
+          <div class="deliverable-text">
+            <strong>Viewing Modes &amp; Immersive Interaction</strong>
+            <span>Coaches can inhabit a player's perspective or toggle between strategic cameras with granular control over FOV (Field of View), hip orientation, and proximity — providing a precise behavioral dataset for elite player-coach film sessions and scouting.</span>
+          </div>
+          <div class="deliverable-preview">
+            <img src="../../Brand_assets/My current portfolio/NHL Page/NHL 4th square.webp" alt="Viewing Modes" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="conclusion-section reveal">
+    <h2>Conclusion</h2>
+    <p>
+      The NHL project taught me what it means to hold both ends of the product simultaneously — a fan experience heading into real user testing, and a professional tool in daily use by coaching staff at the highest level of the sport. The constraint in both cases was the same: time is limited, so fix what blocks value first.
+    </p>
+    <p>
+      What I'm proud of isn't the feature list. It's the decisions that made the features usable — the hybrid POV that solved motion sickness, the timeline that stayed on one screen, the player name visible every time. And the relationship work that held it all together: a $1.4M renewal built on weekly alignment, daily responsiveness, and a product that coaches actually used.
+    </p>
+  </div>
+
+  <a href="usopen.html" class="next-project">
+    <div><div class="next-label">Next Project</div><div class="next-title">2025 US Open VR Experience</div></div>
+    <div class="next-arrow">→</div>
+  </a>
+
+  <footer>
+    <span class="footer-logo">CHARLES TAYLOR</span>
+    <span>UX Researcher & Product Manager</span>
+    <a href="../index.html" style="color:var(--blue);">← Back to portfolio</a>
+  </footer>
+  <script src="../js/main.js"></script>
+</body>
+</html>

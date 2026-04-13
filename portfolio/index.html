@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Charles Taylor — UX Researcher & Product Manager</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body { opacity: 0; }
+    /* Home-specific styles */
+    .hero { background: var(--bg); }
+    .projects-section { padding: 60px 0; }
+    .projects-section + .projects-section { padding-top: 0; }
+
+    /* Project card image fill */
+    .pcard-img-wrap {
+      width: 100%; height: 100%;
+      position: relative; overflow: hidden;
+    }
+    .pcard-img-wrap img {
+      width: 100%; height: 100%; 
+      object-fit: cover;
+      transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      display: block;
+    }
+    .project-card:hover .pcard-img-wrap img { transform: scale(1.06); }
+
+    .pcard-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(13,61,128,0.8) 0%, rgba(13,61,128,0.1) 55%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .project-card:hover .pcard-gradient { opacity: 1; }
+
+    .pcard-overlay-title {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 24px;
+      color: var(--white);
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.4s, transform 0.4s;
+    }
+    .project-card:hover .pcard-overlay-title {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .pcard-overlay-title span {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 4px;
+    }
+    .pcard-overlay-title strong {
+      font-family: var(--ff-display);
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+
+    /* Fallback solid color cards (for automation projects) */
+    .card-solid {
+      width: 100%; height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--ff-display);
+      font-size: 40px;
+      font-weight: 900;
+      color: rgba(255,255,255,0.12);
+    }
+    .card-solid.a { background: linear-gradient(135deg, #1557B0 0%, #2B72D0 100%); }
+    .card-solid.b { background: linear-gradient(135deg, #0D3D80 0%, #1557B0 100%); }
+    .card-solid.c { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); }
+    .card-solid.d { background: linear-gradient(135deg, #2d1b69 0%, #11998e 100%); }
+    .card-solid.e { background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%); }
+  </style>
+</head>
+<body>
+
+  <!-- Cursor -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">CHARLES TAYLOR</a>
+    <div class="nav-links">
+      <a href="#xr-projects"  class="nav-link">3D / XR</a>
+      <a href="#ux-projects"  class="nav-link">UX / UI</a>
+      <a href="#automation"   class="nav-link">Automation</a>
+      <a href="#contact"      class="nav-cta">Let's Connect ↗</a>
+    </div>
+    <button class="nav-menu-btn" aria-label="Open menu">
+      <span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" aria-hidden="true">
+    <a href="#xr-projects">3D / XR</a>
+    <a href="#ux-projects">UX / UI</a>
+    <a href="#automation">Automation</a>
+    <a href="#contact">Let's Connect</a>
+  </div>
+
+  <!-- ══ HERO ═══════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="hero-tag">UX Researcher & Product Manager</div>
+        <h1 class="hero-title">
+          <span class="line"><span>Product Manager</span></span>
+          <span class="line"><span>shaping <em>user-</em></span></span>
+          <span class="line"><span><em>centered</em> products</span></span>
+          <span class="line"><span>from insight</span></span>
+          <span class="line"><span>to delivery.</span></span>
+        </h1>
+        <p class="hero-bio">
+          With an engineering background bridging user discovery and technical feasibility —
+          qualitative research, field tests and UX design on XR, AI and mobility projects,
+          from insight to delivery with measurable impact.
+        </p>
+        <div class="hero-actions">
+          <a href="#xr-projects" class="btn-primary">View Projects ↓</a>
+          <a href="#contact"     class="btn-secondary">Let's Connect ↗</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-photo-wrap">
+          <div class="hero-photo-ring"></div>
+          <div class="hero-photo">
+            <img src="../Brand_assets/My current portfolio/Picture of me.avif" alt="Charles Taylor" />
+          </div>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-num" data-count="9" data-suffix="+">9+</div>
+            <div class="stat-label">Projects</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num" data-count="1.4" data-suffix="M$" data-decimals="1">1.4M$</div>
+            <div class="stat-label">Contract TCV</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num" data-count="500" data-suffix="K+">500K+</div>
+            <div class="stat-label">Users Reached</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ══ FEATURED CLIENTS ═════════════════ -->
+  <section class="featured-clients">
+    <div class="container">
+      <div class="featured-label">Featured work for</div>
+      <div class="featured-grid">
+        <a href="projects/nhl.html" class="featured-card">
+          <div class="featured-card-logo">
+            <img src="../Brand_assets/Logos/NHL Logo.avif" alt="NHL" />
+          </div>
+          <div class="featured-card-info">
+            <span class="featured-card-tag">3D / XR</span>
+            <span class="featured-card-name">NHL</span>
+          </div>
+        </a>
+        <a href="projects/nhl.html" class="featured-card">
+          <div class="featured-card-logo">
+            <img src="../Brand_assets/Logos/Apple Logo.avif" alt="Apple" />
+          </div>
+          <div class="featured-card-info">
+            <span class="featured-card-tag">3D / XR</span>
+            <span class="featured-card-name">Apple</span>
+          </div>
+        </a>
+        <a href="projects/psg.html" class="featured-card">
+          <div class="featured-card-logo">
+            <img src="../Brand_assets/Logos/Google logo.avif" alt="Google" />
+          </div>
+          <div class="featured-card-info">
+            <span class="featured-card-tag">3D / XR</span>
+            <span class="featured-card-name">Google</span>
+          </div>
+        </a>
+        <a href="projects/usopen.html" class="featured-card">
+          <div class="featured-card-logo">
+            <img src="../Brand_assets/Logos/Us Open logo.avif" alt="US Open" />
+          </div>
+          <div class="featured-card-info">
+            <span class="featured-card-tag">3D / XR</span>
+            <span class="featured-card-name">US Open</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ LOGO STRIP ════════════════════════ -->
+  <div class="logo-strip">
+    <div class="logo-strip-label">Worked with</div>
+    <div class="logo-track">
+      <!-- Set 1 -->
+      <div class="logo-set">
+        <div class="logo-item"><img src="../Brand_assets/Logos/NHL Logo.avif" alt="NHL" /></div>
+        <div class="logo-item"><img src="../Brand_assets/Logos/Apple Logo.avif" alt="Apple" /></div>
+        <div class="logo-item"><img src="../Brand_assets/Logos/Google logo.avif" alt="Google" /></div>
+        <div class="logo-item"><img src="../Brand_assets/Logos/PSG Logo.avif" alt="PSG" /></div>
+        <div class="logo-item"><img src="../Brand_assets/Logos/IBM Logo.avif" alt="IBM" /></div>
+        <div class="logo-item"><img src="../Brand_assets/Logos/Renault logo.avif" alt="Renault" /></div>
+        <div class="logo-item"><img src="../Brand_assets/Logos/Vodafone Logo.avif" alt="Vodafone" /></div>
+        <div class="logo-item"><img src="../Brand_assets/Logos/ESPN Logo.avif" alt="ESPN" /></div>
+        <div class="logo-item"><img src="../Brand_assets/Logos/Samsung Logo.avif" alt="Samsung" /></div>
+        <div class="logo-item"><img src="../Brand_assets/Logos/Atos Logo.avif" alt="Atos" /></div>
+        <div class="logo-item"><img src="../Brand_assets/Logos/EVIDEN Logo.avif" alt="Eviden" /></div>
+        <div class="logo-item"><img src="../Brand_assets/Logos/Orange logo.avif" alt="Orange" /></div>
+        <div class="logo-item"><img src="../Brand_assets/Logos/Eye Net Logo.avif" alt="Eye-Net" /></div>
+        <div class="logo-item"><img src="../Brand_assets/Logos/Software république logo.avif" alt="Software République" /></div>
+        <div class="logo-item"><img src="../Brand_assets/Logos/Us Open logo.avif" alt="US Open" /></div>
+        <div class="logo-item"><img src="../Brand_assets/Logos/Le Lab TBM Mouv! Logo.avif" alt="TBM" /></div>
+      </div>
+      <!-- Set 2 — duplicate for seamless loop -->
+      <div class="logo-set">
+        <div class="logo-item"><img src="../Brand_assets/Logos/NHL Logo.avif" alt="NHL" /></div>
+        <div class="logo-item"><img src="../Brand_assets/Logos/Apple Logo.avif" alt="Apple" /></div>
+        <div class="logo-item"><img src="../Brand_assets/Logos/Google logo.avif" alt="Google" /></div>
+        <div class="logo-item"><img src="../Brand_assets/Logos/PSG Logo.avif" alt="PSG" /></div>
+        <div class="logo-item"><img src="../Brand_assets/Logos/IBM Logo.avif" alt="IBM" /></div>
+        <div class="logo-item"><img src="../Brand_assets/Logos/Renault logo.avif" alt="Renault" /></div>
+        <div class="logo-item"><img src="../Brand_assets/Logos/Vodafone Logo.avif" alt="Vodafone" /></div>
+        <div class="logo-item"><img src="../Brand_assets/Logos/ESPN Logo.avif" alt="ESPN" /></div>
+        <div class="logo-item"><img src="../Brand_assets/Logos/Samsung Logo.avif" alt="Samsung" /></div>
+        <div class="logo-item"><img src="../Brand_assets/Logos/Atos Logo.avif" alt="Atos" /></div>
+        <div class="logo-item"><img src="../Brand_assets/Logos/EVIDEN Logo.avif" alt="Eviden" /></div>
+        <div class="logo-item"><img src="../Brand_assets/Logos/Orange logo.avif" alt="Orange" /></div>
+        <div class="logo-item"><img src="../Brand_assets/Logos/Eye Net Logo.avif" alt="Eye-Net" /></div>
+        <div class="logo-item"><img src="../Brand_assets/Logos/Software république logo.avif" alt="Software République" /></div>
+        <div class="logo-item"><img src="../Brand_assets/Logos/Us Open logo.avif" alt="US Open" /></div>
+        <div class="logo-item"><img src="../Brand_assets/Logos/Le Lab TBM Mouv! Logo.avif" alt="TBM" /></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ ABOUT / QUOTE ══════════════════════ -->
+  <section class="about-section">
+    <div class="container">
+
+      <!-- Pull quote — full width -->
+      <div class="pull-quote reveal">
+        <div class="pull-quote-bar"></div>
+        <div class="pull-quote-body">
+          <p class="pull-quote-text">
+            "I worked with Charles while building sports tech products and consistently found him
+            to be an exceptionally organized, detail-oriented Product Manager.
+            I would gladly work with him again."
+          </p>
+          <span class="pull-quote-author">— Director of Innovation @ NHL</span>
+        </div>
+      </div>
+
+      <!-- 3-col: bio | skills | education -->
+      <div class="about-grid">
+        <div class="about-col reveal reveal-delay-1">
+          <div class="about-col-label">About</div>
+          <h3 class="about-col-title">Engineering mind.<br/>Human-centered products.</h3>
+          <p class="about-col-body">
+            I work comfortably across the full product lifecycle — from problem framing
+            and UX research through to delivery and stakeholder alignment.
+          </p>
+          <p class="about-col-body">
+            I've contributed to web, mobile and AR products in B2B and B2C contexts,
+            always balancing user experience, business impact and technical feasibility.
+          </p>
+        </div>
+
+        <div class="about-col reveal reveal-delay-2">
+          <div class="about-col-label">Skills</div>
+          <div class="skills-list">
+            <span class="skill-tag">Product Discovery</span>
+            <span class="skill-tag">UX Research</span>
+            <span class="skill-tag">Interaction Design</span>
+            <span class="skill-tag">Prototyping</span>
+            <span class="skill-tag">Usability Testing</span>
+            <span class="skill-tag">Stakeholder Alignment</span>
+            <span class="skill-tag">XR / AR</span>
+            <span class="skill-tag">Agile / Scrum</span>
+          </div>
+        </div>
+
+        <div class="about-col reveal reveal-delay-3">
+          <div class="about-col-label">Education</div>
+          <div class="edu-list">
+            <div class="edu-item">ECE Paris — Master's in Engineering, Product Engineering &amp; Innovation</div>
+            <div class="edu-item">UDLAP Mexico — Innovation Management, Neural Networks, Data Viz &amp; 3D Modelling</div>
+            <div class="edu-item">Roskilde Uni Denmark — Computer Science</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ 3D / XR PROJECTS ═══════════════════ -->
+  <section id="xr-projects" class="projects-section">
+    <div class="container">
+      <div class="category-strip">
+        <span class="category-label">3D / XR</span>
+        <div class="category-line"></div>
+        <span style="font-size:12px;color:var(--ink-light);">Immersiv.io · 2025</span>
+      </div>
+      <div class="projects-grid">
+
+        <!-- NHL XR — large -->
+        <a href="projects/nhl.html" class="project-card card--large reveal">
+          <div class="project-card-inner">
+            <div class="pcard-img-wrap">
+              <img src="../Brand_assets/My current portfolio/NHL Page/First Picture.png"
+                   alt="NHL XR Experience" loading="lazy" />
+              <div class="pcard-gradient"></div>
+              <div class="pcard-overlay-title">
+                <span>3D / XR · 2025</span>
+                <strong>NHL Rediscovered in 3D</strong>
+              </div>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <div class="project-card-meta">
+              <span class="card-category">3D / XR</span>
+              <span class="card-year">2025</span>
+            </div>
+            <div class="project-card-title">NHL — Rediscovered in 3D</div>
+            <div class="project-card-role">3D/XR Product Manager · Immersiv.io</div>
+            <div class="project-card-arrow">→</div>
+          </div>
+        </a>
+
+        <!-- PSG XR — small -->
+        <a href="projects/psg.html" class="project-card card--small reveal reveal-delay-2">
+          <div class="project-card-inner">
+            <div class="pcard-img-wrap">
+              <img src="../Brand_assets/My current portfolio/PSG XR Page/2nd pic PSG XR.avif"
+                   alt="PSG XR Experience" loading="lazy" />
+              <div class="pcard-gradient"></div>
+              <div class="pcard-overlay-title">
+                <span>3D / XR · 2025</span>
+                <strong>PSG XR: A New Way of Watching Football</strong>
+              </div>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <div class="project-card-meta">
+              <span class="card-category">3D / XR</span>
+              <span class="card-year">2025</span>
+            </div>
+            <div class="project-card-title">PSG XR — A New Way of Watching Football</div>
+            <div class="project-card-role">3D/XR Product Manager · Immersiv.io</div>
+            <div class="project-card-arrow">→</div>
+          </div>
+        </a>
+
+        <!-- US Open — medium -->
+        <a href="projects/usopen.html" class="project-card card--medium reveal reveal-delay-1">
+          <div class="project-card-inner">
+            <div class="pcard-img-wrap">
+              <img src="../Brand_assets/My current portfolio/US Open Page/US Open 1st Picture.avif"
+                   alt="US Open VR Experience" loading="lazy" />
+              <div class="pcard-gradient"></div>
+              <div class="pcard-overlay-title">
+                <span>3D / XR · 2025</span>
+                <strong>360° US Open VR Experience</strong>
+              </div>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <div class="project-card-meta">
+              <span class="card-category">3D / XR</span>
+              <span class="card-year">2025</span>
+            </div>
+            <div class="project-card-title">360° US Open VR Experience</div>
+            <div class="project-card-role">3D/XR Product Manager · Immersiv.io</div>
+            <div class="project-card-arrow">→</div>
+          </div>
+        </a>
+
+        <!-- Vodafone — medium -->
+        <a href="projects/vodafone.html" class="project-card card--medium reveal reveal-delay-2">
+          <div class="project-card-inner">
+            <div class="pcard-img-wrap">
+              <img src="../Brand_assets/My current portfolio/Vodafone 5G AR Stadium/Experience overview Vodafone 5G AR Stadium App 4th Square Pic and cover pic.avif"
+                   alt="Vodafone 5G AR Stadium" loading="lazy" />
+              <div class="pcard-gradient"></div>
+              <div class="pcard-overlay-title">
+                <span>3D / XR · 2025</span>
+                <strong>Vodafone 5G AR Stadium</strong>
+              </div>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <div class="project-card-meta">
+              <span class="card-category">3D / XR</span>
+              <span class="card-year">2025</span>
+            </div>
+            <div class="project-card-title">Vodafone 5G AR Stadium</div>
+            <div class="project-card-role">3D/XR Product Manager · Immersiv.io</div>
+            <div class="project-card-arrow">→</div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ UX / UI PROJECTS ══════════════════ -->
+  <section id="ux-projects" class="projects-section">
+    <div class="container">
+      <div class="category-strip">
+        <span class="category-label">UX / UI</span>
+        <div class="category-line"></div>
+        <span style="font-size:12px;color:var(--ink-light);">WEEM · Renault / Software République · 2024–2025</span>
+      </div>
+      <div class="projects-grid">
+
+        <!-- V2X — large -->
+        <a href="projects/v2x.html" class="project-card card--large reveal">
+          <div class="project-card-inner">
+            <div class="pcard-img-wrap">
+              <img src="../Brand_assets/My current portfolio/V2X Project Page/TBM APP integration pic.avif"
+                   alt="V2X Collision Prevention" loading="lazy" />
+              <div class="pcard-gradient"></div>
+              <div class="pcard-overlay-title">
+                <span>UX Research · 2025</span>
+                <strong>V2X Collision Prevention</strong>
+              </div>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <div class="project-card-meta">
+              <span class="card-category">UX Research</span>
+              <span class="card-year">2025</span>
+            </div>
+            <div class="project-card-title">V2X Collision Prevention — Bordeaux Metropole</div>
+            <div class="project-card-role">UX Researcher · Renault / Software République</div>
+            <div class="project-card-arrow">→</div>
+          </div>
+        </a>
+
+        <!-- Freelance Platform — small -->
+        <a href="projects/freelance-platform.html" class="project-card card--small reveal reveal-delay-2">
+          <div class="project-card-inner">
+            <div class="pcard-img-wrap">
+              <img src="../Brand_assets/My current portfolio/Platform Redesign page/Freelancing Plaform Redesign 2nd pic.webp"
+                   alt="Freelancing Platform Redesign" loading="lazy" style="object-position: center 02%;" />
+              <div class="pcard-gradient"></div>
+              <div class="pcard-overlay-title">
+                <span>UX Design · 2024</span>
+                <strong>Freelancing Platform Redesign</strong>
+              </div>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <div class="project-card-meta">
+              <span class="card-category">UX Design</span>
+              <span class="card-year">2024</span>
+            </div>
+            <div class="project-card-title">Freelancing Platform Redesign</div>
+            <div class="project-card-role">UX Designer & Researcher · WEEM</div>
+            <div class="project-card-arrow">→</div>
+          </div>
+        </a>
+
+        <!-- Internal Tool — medium -->
+        <a href="projects/internal-tool.html" class="project-card card--medium reveal reveal-delay-1">
+          <div class="project-card-inner">
+            <div class="card-solid b">AI</div>
+            <div class="pcard-gradient"></div>
+            <div class="pcard-overlay-title">
+              <span>UX Design · 2024</span>
+              <strong>Internal Freelancer Search Tool</strong>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <div class="project-card-meta">
+              <span class="card-category">UX Design</span>
+              <span class="card-year">2024</span>
+            </div>
+            <div class="project-card-title">Internal Freelancer Search Tool Design</div>
+            <div class="project-card-role">UX Designer & Researcher · WEEM</div>
+            <div class="project-card-arrow">→</div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ AUTOMATION PROJECTS ════════════════ -->
+  <section id="automation" class="projects-section">
+    <div class="container">
+      <div class="category-strip">
+        <span class="category-label">Automation</span>
+        <div class="category-line"></div>
+        <span style="font-size:12px;color:var(--ink-light);">WEEM · 2024</span>
+      </div>
+      <div class="projects-grid">
+
+        <!-- Automated Feedback — medium -->
+        <a href="projects/automated-feedback.html" class="project-card card--medium reveal">
+          <div class="project-card-inner">
+            <div class="card-solid d">⚡</div>
+            <div class="pcard-gradient"></div>
+            <div class="pcard-overlay-title">
+              <span>Automation · 2024</span>
+              <strong>Automated Post-Mission Feedback</strong>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <div class="project-card-meta">
+              <span class="card-category">Automation</span>
+              <span class="card-year">2024</span>
+            </div>
+            <div class="project-card-title">Automated Post-Mission Feedback Form</div>
+            <div class="project-card-role">Process Automation · WEEM</div>
+            <div class="project-card-arrow">→</div>
+          </div>
+        </a>
+
+        <!-- CV Parsing — medium -->
+        <a href="projects/parsing-automation.html" class="project-card card--medium reveal reveal-delay-2">
+          <div class="project-card-inner">
+            <div class="card-solid e">AI</div>
+            <div class="pcard-gradient"></div>
+            <div class="pcard-overlay-title">
+              <span>Automation · 2024</span>
+              <strong>CV Parsing Automation System</strong>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <div class="project-card-meta">
+              <span class="card-category">Automation</span>
+              <span class="card-year">2024</span>
+            </div>
+            <div class="project-card-title">CV Parsing Automation System</div>
+            <div class="project-card-role">Process Automation · WEEM</div>
+            <div class="project-card-arrow">→</div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CONTACT ════════════════════════════ -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2 class="reveal">Let's work <em>together</em></h2>
+      <p class="reveal reveal-delay-1">
+        Open to product, UX research and design roles. Based in Paris, available globally.
+      </p>
+      <div class="contact-links reveal reveal-delay-2">
+        <a href="mailto:charlestaylor.pro@gmail.com" class="btn-primary">
+          ✉ charlestaylor.pro@gmail.com
+        </a>
+        <a href="https://www.linkedin.com/in/chucktaylor2002" target="_blank" rel="noopener" class="btn-secondary">
+          in LinkedIn ↗
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <span class="footer-logo">CHARLES TAYLOR</span>
+    <span>UX Researcher & Product Manager · Paris, France</span>
+    <span>+33 6 58 02 58 96</span>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
