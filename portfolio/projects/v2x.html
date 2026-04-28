@@ -12,6 +12,59 @@
     .design-grid img { width: 100%; border-radius: var(--radius); display: block; }
     @media (max-width: 768px) { .design-grid { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 480px) { .design-grid { grid-template-columns: 1fr; } }
+    .section-divider {
+      display: flex; align-items: center; gap: 24px;
+      padding: 48px 0 0;
+    }
+    .section-divider-line { flex: 1; height: 1px; background: var(--line); }
+    .section-divider-label {
+      font-family: var(--ff-display); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--ink-light); white-space: nowrap;
+    }
+    .insight-card {
+      padding: 32px 36px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--blue);
+      border-radius: var(--radius-lg);
+    }
+    .insight-num {
+      font-family: var(--ff-display); font-size: 11px; font-weight: 700;
+      color: var(--blue); letter-spacing: 0.14em; margin-bottom: 10px;
+    }
+    .insight-title {
+      font-family: var(--ff-display); font-size: 18px; font-weight: 700;
+      margin-bottom: 12px; color: var(--ink);
+    }
+    .insight-body { font-size: 14px; color: var(--ink-mid); line-height: 1.65; margin: 0; }
+    .obj-card {
+      padding: 20px 24px;
+      background: var(--bg);
+      border-radius: var(--radius);
+      border-left: 3px solid var(--blue);
+    }
+    .obj-label { font-size: 13px; font-weight: 700; color: var(--blue); margin-bottom: 6px; }
+    .obj-body { font-size: 14px; color: var(--ink-mid); margin: 0; }
+    .method-card {
+      padding: 28px;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      text-align: center;
+    }
+    .method-label { font-family: var(--ff-display); font-size: 28px; font-weight: 900; color: var(--blue); line-height: 1; margin-bottom: 10px; }
+    .method-desc { font-size: 13px; color: var(--ink-mid); }
+    .decision-box {
+      margin-top: 24px;
+      padding: 24px 28px;
+      background: rgba(0,90,255,0.06);
+      border-radius: var(--radius);
+      border-left: 3px solid var(--blue);
+    }
+    .scenario-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 24px; }
+    .scenario-grid img { width: 100%; height: auto; display: block; border-radius: var(--radius); border: 1px solid var(--line); }
+    @media (max-width: 768px) { .scenario-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -20,17 +73,15 @@
   <nav class="nav">
     <a href="../index.html" class="nav-logo">CHARLES TAYLOR</a>
     <div class="nav-links">
-      <a href="../index.html#xr-projects" class="nav-link">3D / XR</a>
-      <a href="../index.html#ux-projects" class="nav-link active">UX / UI</a>
-      <a href="../index.html#automation" class="nav-link">Automation</a>
+      <a href="../index.html#product-design" class="nav-link">Product Design</a>
+      <a href="../index.html#ux-research" class="nav-link active">UX Research</a>
       <a href="../index.html#contact" class="nav-cta">Let's Connect ↗</a>
     </div>
     <button class="nav-menu-btn" aria-label="Open menu"><span></span><span></span></button>
   </nav>
   <div class="mobile-menu">
-    <a href="../index.html#xr-projects">3D / XR</a>
-    <a href="../index.html#ux-projects">UX / UI</a>
-    <a href="../index.html#automation">Automation</a>
+    <a href="../index.html#product-design">Product Design</a>
+    <a href="../index.html#ux-research">UX Research</a>
     <a href="../index.html#contact">Let's Connect</a>
   </div>
 
@@ -48,7 +99,7 @@
       </div>
       <h1 class="project-title">V2X Collision Prevention —<br/><em>Bordeaux Metropole</em><br/>TBM App Integration</h1>
       <p class="project-intro">
-        Coordinating the integration of a Vehicle-to-Everything (V2X) collision prevention SDK into the TBM mobility app in Bordeaux — bridging UX research, product design, and multi-partner delivery to make everyday trips safer for cyclists and bus users.
+        A full UX Research cycle — from research brief to field simulation to design recommendations — validating whether a V2X collision prevention SDK could be integrated into the TBM mobility app in a way real commuters would understand, trust and actually use daily.
       </p>
       <div class="stats-row reveal">
         <div class="stat-box"><div class="stat-box-num">22</div><div class="stat-box-label">Participants Tested</div></div>
@@ -75,125 +126,277 @@
     </div>
   </div>
 
-  <!-- My Role + LinkedIn embed -->
+
+  <!-- ═══ 01 DISCOVER ═══════════════════════════ -->
   <div class="project-section">
+    <div class="container">
+      <div class="section-divider">
+        <div class="section-divider-line"></div>
+        <div class="section-divider-label">01 — Discover</div>
+        <div class="section-divider-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-section" style="padding-top:52px;">
     <div class="container">
       <div class="content-grid">
         <div>
-          <div class="section-label">My Role</div>
-          <h2 class="section-h2">Project Coordinator &amp; UX Contributor</h2>
+          <div class="section-label">Research Brief</div>
+          <h2 class="section-h2">The Real Question Wasn't Technical</h2>
           <div class="section-body">
             <p>
-              I assisted the Program Manager as a Project Coordinator and Product &amp; UX contributor — bridging partners and technical teams, running user research, and translating insights into product decisions and in-app experiences. I owned the UX research protocol, the analysis and stakeholder read-out, and contributed to product design and testing enablement (Figma prototypes + tester onboarding).
+              The project brief was to integrate a V2X collision prevention SDK into the TBM mobility app. But the actual research question was more fundamental: would everyday commuters understand, trust, and actually use a real-time safety alert — in a high-attention, real-world context like cycling through Bordeaux traffic?
+            </p>
+            <p>
+              Technical feasibility was already proven. Behavioral adoption wasn't. My role was to design and run the research to answer the harder question — and turn the findings into design decisions.
             </p>
           </div>
         </div>
         <div class="reveal reveal-delay-1">
-          <div class="linkedin-embed-wrap">
-            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7396845434905800704?collapsed=1" height="550" width="504" frameborder="0" allowfullscreen title="V2X LinkedIn Post"></iframe>
+          <div class="section-label">Research Objectives</div>
+          <div style="display:flex;flex-direction:column;gap:14px;margin-top:8px;">
+            <div class="obj-card">
+              <div class="obj-label">Comprehension</div>
+              <p class="obj-body">Do users understand what each alert means — and what action it requires?</p>
+            </div>
+            <div class="obj-card">
+              <div class="obj-label">Acceptability</div>
+              <p class="obj-body">Is the alert behavior acceptable — appropriate frequency, timing and intrusiveness for real commuting contexts?</p>
+            </div>
+            <div class="obj-card">
+              <div class="obj-label">Daily Adoption Intent</div>
+              <p class="obj-body">Would participants actually keep the feature active during their daily commute?</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Project overview -->
+  <!-- Methodology -->
   <div class="project-section">
     <div class="container">
-      <div class="section-label">Project Overview</div>
-      <h2 class="section-h2">V2X — Making Bordeaux's Streets Safer</h2>
-      <div class="section-body" style="max-width:760px;">
+      <div class="section-label">Methodology</div>
+      <h2 class="section-h2">Real-World Simulation — 22 Participants, 2 Days</h2>
+      <div class="section-body" style="max-width:760px;margin-bottom:32px;">
         <p>
-          Collision Prevention (V2X — Vehicle to Everything) is a real-life mobility pilot in Bordeaux Métropole aiming to make everyday trips safer for cyclists by enabling real-time alerts between road users (bus drivers, cyclists, cars) through a smartphone-based solution.
+          Rather than a lab study, I designed a field simulation — putting participants in real commuting conditions on the streets of Bordeaux. The protocol combined a pre-test survey to establish baselines and recruit by persona, live scenario testing with the app running during actual journeys, and a structured post-test debrief capturing reactions, concerns and adoption intent.
         </p>
         <p>
-          The project improved an existing Android APK and then integrated the V2X SDK into the TBM mobility app, so beta testers could receive contextual safety alerts (direction + distance + severity), including a high-severity collision alert powered by Eye-Net algorithms. The solution is now live in Bordeaux.
+          Participants were recruited across three mobility profiles — cyclists, bus commuters, and car drivers — each with a different relationship to road safety alerts. 22 participants completed the full protocol over two days.
         </p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;" class="reveal">
+        <div class="method-card">
+          <div class="method-label">Survey</div>
+          <div class="method-desc">Baseline + persona profiling before the field session</div>
+        </div>
+        <div class="method-card">
+          <div class="method-label">Field</div>
+          <div class="method-desc">Live scenario testing in real commuting conditions</div>
+        </div>
+        <div class="method-card">
+          <div class="method-label">Debrief</div>
+          <div class="method-desc">Structured post-session interview per participant</div>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- What I Delivered -->
+
+  <!-- ═══ 02 DEFINE ════════════════════════════ -->
   <div class="project-section">
     <div class="container">
-      <div class="section-label">What I Delivered</div>
-      <h2 class="section-h2">Research, Design &amp; Coordination</h2>
-      <div class="content-grid" style="margin-top:32px;">
+      <div class="section-divider" style="padding-top:0;">
+        <div class="section-divider-line"></div>
+        <div class="section-divider-label">02 — Define</div>
+        <div class="section-divider-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-section" style="padding-top:52px;">
+    <div class="container">
+      <div class="section-label">Key Insights</div>
+      <h2 class="section-h2">What 22 Participants Taught Us</h2>
+      <div class="section-body" style="max-width:760px;margin-bottom:32px;">
+        <p>I synthesised qualitative and quantitative data into structured findings, categorised by feature area, frequency and severity — then built a decision-ready stakeholder presentation translating insights into prioritised design recommendations.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:20px;" class="reveal">
+        <div class="insight-card">
+          <div class="insight-num">INSIGHT 01</div>
+          <div class="insight-title">Alert language didn't match commuter mental models</div>
+          <p class="insight-body">Participants understood the urgency gradient — low, medium, high — but couldn't immediately map it to the required action. Technical severity didn't translate to behavioral clarity, particularly for cyclists who needed directional and distance cues to respond in time.</p>
+        </div>
+        <div class="insight-card">
+          <div class="insight-num">INSIGHT 02</div>
+          <div class="insight-title">Alert fatigue was the primary adoption risk</div>
+          <p class="insight-body">The most common concern: "I'll turn it off after the first week." Participants were willing to try the feature, but only if alerts remained meaningful and infrequent. A high-frequency system — even an accurate one — would be disabled within days. Trust and adoption depended on restraint.</p>
+        </div>
+        <div class="insight-card">
+          <div class="insight-num">INSIGHT 03</div>
+          <div class="insight-title">Users needed control — but not friction</div>
+          <p class="insight-body">Participants wanted to personalise their alert sensitivity, but rejected anything requiring active calibration mid-commute or at setup. The design implication was clear: personalization had to be immediate, one-tap, and intuitively understandable — not a settings rabbit hole.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══ 03 DEVELOP ══════════════════════════ -->
+  <div class="project-section">
+    <div class="container">
+      <div class="section-divider" style="padding-top:0;">
+        <div class="section-divider-line"></div>
+        <div class="section-divider-label">03 — Develop</div>
+        <div class="section-divider-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-section" style="padding-top:52px;">
+    <div class="container">
+      <div class="section-label">Design Exploration</div>
+      <h2 class="section-h2">From Insight to Interface</h2>
+      <div class="section-body" style="max-width:760px;margin-bottom:40px;">
+        <p>The core design challenge: how do you give users meaningful control over alert sensitivity without adding cognitive overhead — especially for cyclists who can't configure settings mid-journey?</p>
+      </div>
+
+      <!-- Early frame -->
+      <div class="reveal" style="margin-bottom:48px;">
+        <div style="margin-bottom:16px;">
+          <div style="font-family:var(--ff-display);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue);margin-bottom:6px;">First Direction</div>
+          <h3 style="font-family:var(--ff-display);font-size:20px;font-weight:700;margin:0 0 10px;">Initial concept — alert integration into TBM</h3>
+          <p style="font-size:14px;color:var(--ink-mid);max-width:640px;">The first iteration explored how alerts would surface within the existing TBM app UI — as inline banners, persistent states, or notification overlays — without disrupting the core navigation experience for users already in motion.</p>
+        </div>
+        <img src="../../Brand_assets/My current portfolio/V2X Project Page/Early frame.png"
+             alt="Early V2X design frame" loading="lazy"
+             style="width:100%;height:auto;display:block;border-radius:var(--radius-lg);border:1px solid var(--line);" />
+      </div>
+
+      <!-- Slider vs Buttons -->
+      <div class="reveal" style="margin-bottom:24px;">
+        <div style="font-family:var(--ff-display);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue);margin-bottom:6px;">Design Exploration</div>
+        <h3 style="font-family:var(--ff-display);font-size:20px;font-weight:700;margin:0 0 10px;">Two approaches to protection level selection</h3>
+        <p style="font-size:14px;color:var(--ink-mid);max-width:640px;margin-bottom:32px;">From Insight 03, we knew users wanted control. Two competing interaction models were explored for how users set their alert sensitivity:</p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;" class="reveal">
         <div>
-          <div class="deliverables-list" style="margin-top:0;">
-            <div class="deliverable-item reveal">
-              <div class="deliverable-icon">🔗</div>
-              <div class="deliverable-text">
-                <strong>Cross-Partner Coordination</strong>
-                <span>I supported the Program Manager across the full pilot cycle, acting as the link between Orange, Atos, Eviden, Eye-Net, LabTBMouv', Ville de Bordeaux, and TBM/Keolis — ensuring research, design, and SDK integration moved forward in sync.</span>
-              </div>
-            </div>
-            <div class="deliverable-item reveal reveal-delay-1">
-              <div class="deliverable-icon">🧪</div>
-              <div class="deliverable-text">
-                <strong>UX Research — Real-World Simulation (2 days / 22 users)</strong>
-                <span>I designed and ran a groundbreaking real-world simulation over two days with 22 participants across different mobility profiles. Built the protocol (survey + scenario testing), recruited by persona, and ensured test conditions reflected daily commuting realities. The goal: not just "does it work?" but "is it understandable, acceptable, and useful enough to be used every day?"</span>
-              </div>
-            </div>
-            <div class="deliverable-item reveal reveal-delay-2">
-              <div class="deliverable-icon">📊</div>
-              <div class="deliverable-text">
-                <strong>Data Analysis → Decision-Making Deliverables</strong>
-                <span>I turned a large volume of qualitative and quantitative feedback into structured, decision-ready analysis — categorising issues by feature area, type, and frequency, then building a stakeholder presentation translating this into prioritised recommendations for app modifications and alert strategy.</span>
-              </div>
-            </div>
-            <div class="deliverable-item reveal reveal-delay-3">
-              <div class="deliverable-icon">🎨</div>
-              <div class="deliverable-text">
-                <strong>Product Design &amp; Tester Experience</strong>
-                <span>I designed the TBM app integration in Figma: alert integration, onboarding content, Settings/Parameters area, RGPD and consent patterns, and a tiered alert personalization approach to prevent "alert fatigue" — keeping alerts meaningful, trusted, and actually used.</span>
-              </div>
-            </div>
-          </div>
+          <div style="font-family:var(--ff-display);font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-mid);margin-bottom:10px;">Option A — Slider</div>
+          <img src="../../Brand_assets/My current portfolio/V2X Project Page/Mid Frame with slider to select level of protection.png"
+               alt="Slider protection level" loading="lazy"
+               style="width:100%;height:auto;display:block;border-radius:var(--radius);border:1px solid var(--line);margin-bottom:12px;" />
+          <p style="font-size:13px;color:var(--ink-mid);">A continuous slider offering granular control. More flexibility — but requires users to interpret abstract positions on a scale, adding cognitive load at the moment of setup.</p>
         </div>
-        <div class="reveal reveal-delay-1" style="align-self:start;position:sticky;top:100px;margin-top:0;">
-          <div class="media-block" style="margin-top:0;">
-            <img src="../../Brand_assets/My current portfolio/V2X Project Page/TBM APP integration pic.avif" alt="TBM App V2X Integration" loading="lazy" />
-          </div>
+        <div>
+          <div style="font-family:var(--ff-display);font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-mid);margin-bottom:10px;">Option B — Preset Tiers</div>
+          <img src="../../Brand_assets/My current portfolio/V2X Project Page/Other proposal of buttons to select level of protection frame.png"
+               alt="Button preset levels" loading="lazy"
+               style="width:100%;height:auto;display:block;border-radius:var(--radius);border:1px solid var(--line);margin-bottom:12px;" />
+          <p style="font-size:13px;color:var(--ink-mid);">Discrete protection levels with clear labels. Faster to configure, easier to understand — maps directly to mental models users already have for notification settings.</p>
         </div>
+      </div>
+      <div class="decision-box reveal">
+        <strong style="font-size:13px;font-weight:700;color:var(--blue);">Decision →</strong>
+        <p style="font-size:14px;color:var(--ink-mid);margin:6px 0 0;">The preset tier approach was chosen. The slider created ambiguity during evaluation — participants weren't sure what different positions actually meant in practice. The tier model matched existing mental models and required zero interpretation: one tap, immediately understood, set once.</p>
       </div>
     </div>
   </div>
 
-  <!-- Design screenshots -->
+
+  <!-- ═══ 04 DELIVER ══════════════════════════ -->
   <div class="project-section">
     <div class="container">
-      <div class="section-label">Product Design</div>
-      <h2 class="section-h2">Figma Prototypes &amp; App Integration</h2>
-
-      <div class="reveal" style="margin-top:40px;">
-        <div style="margin-bottom:12px;">
-          <div style="font-family:var(--ff-display);font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-mid);margin-bottom:6px;">Alert Types</div>
-          <p style="font-size:14px;color:var(--ink-mid);max-width:640px;margin:0;">Three levels of contextual safety alerts — each designed with a distinct severity, icon, and copy to communicate direction, distance, and urgency clearly at a glance, without overwhelming daily users.</p>
-        </div>
-        <div class="design-grid" style="max-width:780px;">
-          <img src="../../Brand_assets/My current portfolio/V2X Project Page/Product design & tester experience 1st pic .png" alt="Alert type 1" loading="lazy" style="height:auto;" />
-          <img src="../../Brand_assets/My current portfolio/V2X Project Page/Product design & tester experience 2nd pic.png" alt="Alert type 2" loading="lazy" style="height:auto;" />
-          <img src="../../Brand_assets/My current portfolio/V2X Project Page/Product design & tester experience 3rd pic.png" alt="Alert type 3" loading="lazy" style="height:auto;" />
-        </div>
-      </div>
-
-      <div class="reveal" style="margin-top:40px;">
-        <div style="margin-bottom:12px;">
-          <div style="font-family:var(--ff-display);font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-mid);margin-bottom:6px;">Onboarding Flow</div>
-          <p style="font-size:14px;color:var(--ink-mid);max-width:640px;margin:0;">A step-by-step onboarding sequence guiding testers through permissions, RGPD consent, and alert personalization settings — designed to build trust and reduce drop-off before the first real alert is ever received.</p>
-        </div>
-        <img src="../../Brand_assets/My current portfolio/V2X Project Page/Prototypes 2nd pic.webp" alt="Onboarding flow" loading="lazy" style="width:100%;height:auto;display:block;border-radius:var(--radius);" />
+      <div class="section-divider" style="padding-top:0;">
+        <div class="section-divider-line"></div>
+        <div class="section-divider-label">04 — Deliver</div>
+        <div class="section-divider-line"></div>
       </div>
     </div>
   </div>
 
-  <!-- ── LinkedIn links — KEEP UNCHANGED ── -->
+  <!-- Alert types -->
+  <div class="project-section" style="padding-top:52px;">
+    <div class="container">
+      <div class="section-label">Alert Design</div>
+      <h2 class="section-h2">Three Levels — Designed to Be Understood at a Glance</h2>
+      <div class="section-body" style="max-width:760px;margin-bottom:16px;">
+        <p>Each alert level — informational, warning, and high-severity collision — was designed with a distinct icon, color, copy and haptic pattern. Direction, distance and urgency had to be communicated in under a second, without the user looking away from the road.</p>
+      </div>
+      <!-- Scenario frames -->
+      <div class="reveal" style="margin-top:32px;">
+        <div style="margin-bottom:16px;">
+          <div style="font-family:var(--ff-display);font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-mid);margin-bottom:6px;">Alerts in Context</div>
+          <p style="font-size:14px;color:var(--ink-mid);max-width:640px;margin:0;">Three real-world scenarios — a bus leaving a stop, a car overtaking, and a school zone — each triggering the appropriate severity level based on proximity, speed, and road context. Direction, distance and urgency communicated in under a second.</p>
+        </div>
+        <div class="scenario-grid">
+          <img src="../../Brand_assets/My current portfolio/V2X Project Page/Bus leaving frame.png" alt="Bus leaving alert" loading="lazy" />
+          <img src="../../Brand_assets/My current portfolio/V2X Project Page/Car overtaking frame.png" alt="Car overtaking alert" loading="lazy" />
+          <img src="../../Brand_assets/My current portfolio/V2X Project Page/School alert frame.png" alt="School zone alert" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Onboarding + Settings -->
+  <div class="project-section">
+    <div class="container">
+      <div class="content-grid">
+        <div>
+          <div class="section-label">Onboarding Flow</div>
+          <h2 class="section-h2">Building Trust Before the First Alert</h2>
+          <div class="section-body">
+            <p>A step-by-step onboarding sequence guiding users through permissions, RGPD consent, and the protection level selector — designed to build trust and reduce drop-off before the first real alert is ever received.</p>
+            <p>The goal wasn't just compliance. It was making sure users understood what they were enabling, at what cost to their attention, and how to change it — so when the first alert fired, they trusted it.</p>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-1">
+          <img src="../../Brand_assets/My current portfolio/V2X Project Page/Onboarding frames Figma.webp"
+               alt="Onboarding flow" loading="lazy"
+               style="width:100%;height:auto;display:block;border-radius:var(--radius);" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Settings frame -->
+  <div class="project-section">
+    <div class="container">
+      <div class="section-label">Settings & Personalisation</div>
+      <h2 class="section-h2">Alert Fatigue Prevention by Design</h2>
+      <div class="section-body" style="max-width:700px;margin-bottom:32px;">
+        <p>The settings area lets users revisit their protection level and notification preferences at any time. Designed around the insight that trust erodes through overexposure — the tiered system gives users a clear lever to reduce alert frequency without disabling protection entirely.</p>
+      </div>
+      <div class="media-block reveal">
+        <img src="../../Brand_assets/My current portfolio/V2X Project Page/Settings frame.png"
+             alt="V2X settings screen" loading="lazy" style="width:100%;height:auto;display:block;border-radius:var(--radius-lg);" />
+      </div>
+    </div>
+  </div>
+
+  <!-- TBM Integration -->
+  <div class="project-section">
+    <div class="container">
+      <div class="section-label">App Integration</div>
+      <h2 class="section-h2">V2X Live in the TBM App</h2>
+      <div class="section-body" style="max-width:700px;margin-bottom:32px;">
+        <p>The final design integrates the V2X SDK seamlessly into the TBM mobility app. The solution is now live in Bordeaux — serving real commuters with contextual safety alerts during their daily journeys, without disrupting the core app experience.</p>
+      </div>
+      <div class="media-block reveal">
+        <img src="../../Brand_assets/My current portfolio/V2X Project Page/TBM APP integration pic.avif"
+             alt="TBM App V2X Integration" loading="lazy" />
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Recognition -->
   <div class="project-section">
     <div class="container">
       <div class="section-label">Recognition &amp; Social Coverage</div>
       <h2 class="section-h2">Project Recognition on LinkedIn</h2>
-      <p class="section-body" style="margin-bottom:28px;">The project gained significant industry recognition, winning the SMCL Innovation Trophy and generating coverage from key ecosystem partners.</p>
+      <p class="section-body" style="margin-bottom:28px;">The project won the SMCL Innovation Trophy in "Low Carbon Mobility" and generated coverage across key ecosystem partners.</p>
       <div class="linkedin-links reveal">
         <a class="linkedin-link-card" href="https://www.linkedin.com/posts/hassna-elfarouq-873bb231_bordeauxmetropole-v2x-smcl2025-activity-7397328820246040576-oHIA?utm_source=share&utm_medium=member_desktop" target="_blank" rel="noopener">
           <div class="linkedin-link-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
@@ -222,21 +425,21 @@
   <div class="conclusion-section reveal">
     <h2>Conclusion</h2>
     <p>
-      This project demonstrated my ability to operate at the intersection of program delivery, product strategy, and UX in a complex, multi-partner environment. By combining hands-on UX research, structured analysis, and product design contributions, I helped turn a technically ambitious V2X pilot into a usable, trusted, and field-tested safety feature.
+      This project showed what good UX Research actually changes. The question wasn't whether V2X technology worked — it did. The question was whether real users, in real conditions, would keep it on. By designing a field simulation that reflected actual commuting behavior, the research surfaced three insights that directly shaped the product: alert language, fatigue risk, and the need for frictionless control.
     </p>
     <p>
-      The pilot's successful integration into the TBM app and its live deployment in Bordeaux reflect a balance between innovation and everyday usability — making safety technology adoptable by reducing cognitive load, preventing alert fatigue, and respecting privacy while maintaining effectiveness.
+      The design decisions that followed — preset protection tiers over a slider, a trust-first onboarding flow, severity-coded alerts comprehensible at a glance — weren't aesthetic choices. They were research conclusions. The solution is now live in Bordeaux, and the project won the SMCL Innovation Trophy in Low Carbon Mobility.
     </p>
   </div>
 
   <a href="psg.html" class="next-project">
-    <div><div class="next-label">Next Project</div><div class="next-title">PSG XR — A New Way of Watching Football</div></div>
+    <div><div class="next-label">Next Project</div><div class="next-title">PSG XR — App Design & Information Architecture</div></div>
     <div class="next-arrow">→</div>
   </a>
 
   <footer>
     <span class="footer-logo">CHARLES TAYLOR</span>
-    <span>UX Researcher & Product Manager</span>
+    <span>UX Researcher & Product Designer</span>
     <a href="../index.html" style="color:var(--blue);">← Back to portfolio</a>
   </footer>
   <script src="../js/main.js"></script>
