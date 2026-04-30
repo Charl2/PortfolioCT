@@ -34,7 +34,7 @@
       margin-top: 28px;
     }
     .card-screen img {
-      width: 100%; height: auto; display: block;
+      width: 82%; height: auto; display: block; margin: 0;
       border-radius: var(--radius); border: 1px solid var(--line);
     }
     .decision-card-header {
@@ -181,11 +181,13 @@
       window.addEventListener('scroll', function() {
         if (window._pipDismissed) return;
         var walkthrough = document.getElementById('walkthroughVid');
+        var uxSection = document.getElementById('uxDecisions');
         var coverBottom = coverWrap.getBoundingClientRect().bottom;
         var walkthroughTop = walkthrough ? walkthrough.getBoundingClientRect().top : 999999;
+        var uxTop = uxSection ? uxSection.getBoundingClientRect().top : 999999;
         var coverHeight = coverWrap.offsetHeight;
         var walkthroughHeight = walkthrough ? walkthrough.offsetHeight : 0;
-        var show = coverBottom < coverHeight * 0.5 && coverBottom < coverHeight && walkthroughTop > window.innerHeight - walkthroughHeight * 0.5;
+        var show = coverBottom < coverHeight * 0.5 && coverBottom < coverHeight && walkthroughTop > window.innerHeight - walkthroughHeight * 0.5 && uxTop > window.innerHeight * 0.6;
         if (show && pipVideo.style.display !== 'block') {
           pipVideo.style.display = 'block';
           pipVid.play().catch(function(){});
@@ -255,10 +257,10 @@
     </div>
   </div>
 
-  <!-- UX Decisions & Experience (merged) -->
-  <div class="project-section">
+  <!-- UX Decisions -->
+  <div id="uxDecisions" class="project-section">
     <div class="container">
-      <div class="section-label">UX Decisions & Experience</div>
+      <div class="section-label">UX Decisions</div>
       <h2 class="section-h2">Four Screens, Four Key Choices</h2>
       <div class="decision-cards" style="margin-top:32px;">
 
