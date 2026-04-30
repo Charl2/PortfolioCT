@@ -728,7 +728,6 @@ body.cursor-hidden .cursor-ring { opacity: 0; }
 .card--medium { grid-column: span 6; }
 .card--small  { grid-column: span 4; }
 .card--hero   { grid-column: span 12; }
-.card--hero .project-card-inner { aspect-ratio: 3/1; }
 
 .project-card {
   position: relative;
@@ -745,6 +744,7 @@ body.cursor-hidden .cursor-ring { opacity: 0; }
 }
 .card--large .project-card-inner { aspect-ratio: 16/9; }
 .card--small  .project-card-inner { aspect-ratio: 4/3; }
+.card--hero .project-card-inner  { aspect-ratio: 4.5/1; }
 
 .project-card-img {
   width: 100%;
