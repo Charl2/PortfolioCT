@@ -16,6 +16,26 @@
       border-left: 4px solid var(--blue);
       border-radius: var(--radius-lg);
       padding: 32px 36px;
+      cursor: default;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .decision-card:hover {
+      border-left-color: var(--blue);
+      box-shadow: 0 4px 24px rgba(21,87,176,0.10);
+    }
+    .card-screen {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.5s ease, margin-top 0.3s ease;
+      margin-top: 0;
+    }
+    .decision-card:hover .card-screen {
+      max-height: 900px;
+      margin-top: 28px;
+    }
+    .card-screen img {
+      width: 100%; height: auto; display: block;
+      border-radius: var(--radius); border: 1px solid var(--line);
     }
     .decision-card-header {
       display: flex; align-items: baseline; gap: 14px; margin-bottom: 22px;
@@ -45,12 +65,15 @@
       background: rgba(0,90,255,0.08); color: var(--blue); border-radius: 100px;
       font-size: 11px; font-weight: 700; letter-spacing: 0.03em;
     }
+    .preview-panel { position: sticky; top: 120px; }
+    .preview-panel img { width: 100%; height: auto; display: block; border-radius: var(--radius-lg); border: 1px solid var(--line); transition: opacity 0.2s ease; }
     @media (max-width: 768px) {
       .decision-card { padding: 22px 20px; }
       .decision-cols { grid-template-columns: 1fr; }
       .decision-col { padding: 0 0 18px; border-left: none !important; }
       .decision-col + .decision-col { padding-left: 0; border-top: 1px solid var(--line); padding-top: 18px; }
       .decision-col:last-child { padding-bottom: 0; }
+      .preview-panel { display: none; }
     }
     @media (max-width: 768px) { #pipVideo { display: none !important; } }
     #pipVideo {
@@ -232,7 +255,118 @@
     </div>
   </div>
 
-  <!-- Video presentation -->
+  <!-- UX Decisions & Experience (merged) -->
+  <div class="project-section">
+    <div class="container">
+      <div class="section-label">UX Decisions & Experience</div>
+      <h2 class="section-h2">Four Screens, Four Key Choices</h2>
+      <div class="decision-cards" style="margin-top:32px;">
+
+        <div class="decision-card reveal">
+          <div class="decision-card-header">
+            <span class="decision-card-num">01 · Homepage</span>
+            <span class="decision-card-title">Putting 180° Front and Centre</span>
+          </div>
+          <div class="decision-cols">
+            <div class="decision-col">
+              <div class="decision-col-label">Challenge</div>
+              <p>The homepage needed to surface the right content clearly, but the app's core value, the 180° stadium view, risked getting buried among highlights, stats, and other content.</p>
+            </div>
+            <div class="decision-col">
+              <div class="decision-col-label">Decision</div>
+              <p>I pushed for a dedicated right column exclusively for 180° content. The app's differentiator had to be immediately visible, not something users had to discover.</p>
+            </div>
+            <div class="decision-col">
+              <div class="decision-col-label">Outcome</div>
+              <p>Fans arriving at the home page immediately saw what made the app unique, supporting both adoption and PSG's marketing positioning.</p>
+              <span class="decision-result-tag">Core differentiator made immediately visible</span>
+            </div>
+          </div>
+          <div class="card-screen">
+            <img src="../../Brand_assets/My current portfolio/PSG XR Page/Experience overview 1st Pic PSG XR.avif" alt="Homepage screen" loading="lazy" />
+          </div>
+        </div>
+
+        <div class="decision-card reveal reveal-delay-1">
+          <div class="decision-card-header">
+            <span class="decision-card-num">02 · Match List</span>
+            <span class="decision-card-title">Redesigning Around a Licensing Problem</span>
+          </div>
+          <div class="decision-cols">
+            <div class="decision-col">
+              <div class="decision-col-label">Challenge</div>
+              <p>When we implemented SSO to protect premium full-replay rights, free users lost access to highlights and stats — content that should have been freely available to everyone.</p>
+            </div>
+            <div class="decision-col">
+              <div class="decision-col-label">Decision</div>
+              <p>I redesigned the entire match list user flow to cleanly separate free and premium content — retaining highlights and stats for free users while unlocking full replays for premium.</p>
+            </div>
+            <div class="decision-col">
+              <div class="decision-col-label">Outcome</div>
+              <p>A licensing constraint became a clear tiering model, protecting both user trust and content rights.</p>
+              <span class="decision-result-tag">Free experience preserved without compromising rights</span>
+            </div>
+          </div>
+          <div class="card-screen">
+            <img src="../../Brand_assets/My current portfolio/PSG XR Page/Experience overview 2nd Pic PSG XR.avif" alt="Match List screen" loading="lazy" />
+          </div>
+        </div>
+
+        <div class="decision-card reveal reveal-delay-2">
+          <div class="decision-card-header">
+            <span class="decision-card-num">03 · Video Gallery</span>
+            <span class="decision-card-title">Cutting the Filters Down to What Matters</span>
+          </div>
+          <div class="decision-cols">
+            <div class="decision-col">
+              <div class="decision-col-label">Challenge</div>
+              <p>The video gallery had accumulated too many filter options. Users faced cognitive overload before they could even start browsing content.</p>
+            </div>
+            <div class="decision-col">
+              <div class="decision-col-label">Decision</div>
+              <p>I consolidated filters to the essentials: match highlights and immersive content. Fewer choices, faster access to what users actually came for.</p>
+            </div>
+            <div class="decision-col">
+              <div class="decision-col-label">Outcome</div>
+              <p>A simpler, faster browsing experience and a cleaner visual presentation of PSG's content library.</p>
+              <span class="decision-result-tag">Cognitive load reduced, browsing speed improved</span>
+            </div>
+          </div>
+          <div class="card-screen">
+            <img src="../../Brand_assets/My current portfolio/PSG XR Page/Experience overview 3rd Pic PSG XR.webp" alt="Video Gallery screen" loading="lazy" />
+          </div>
+        </div>
+
+        <div class="decision-card reveal reveal-delay-3">
+          <div class="decision-card-header">
+            <span class="decision-card-num">04 · Live Match</span>
+            <span class="decision-card-title">Making the Most of XR's Visual Space</span>
+          </div>
+          <div class="decision-cols">
+            <div class="decision-col">
+              <div class="decision-col-label">Challenge</div>
+              <p>The tabletop and live views were underusing what makes XR different. Stats and lineup panels defaulted to closed, treating the headset like a phone screen.</p>
+            </div>
+            <div class="decision-col">
+              <div class="decision-col-label">Decision</div>
+              <p>I pushed for visual stats and a momentum tracker on the timeline slider, and advocated for lineup and stats panels to open by default. On XR, you have visual space to absorb more.</p>
+            </div>
+            <div class="decision-col">
+              <div class="decision-col-label">Outcome</div>
+              <p>Users land in an information-rich view that takes advantage of the medium — one fewer interaction barrier, a live experience that feels genuinely spatial.</p>
+              <span class="decision-result-tag">Richer default view, one fewer click</span>
+            </div>
+          </div>
+          <div class="card-screen">
+            <img src="../../Brand_assets/My current portfolio/PSG XR Page/Experience overview 4th Pic PSG XR.webp" alt="Live Match screen" loading="lazy" />
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- App Presentation -->
   <div class="project-section">
     <div class="container">
       <div class="section-label">App Presentation</div>
@@ -265,155 +399,6 @@
       <p style="margin-top:14px;font-size:13px;color:var(--ink-light);display:flex;align-items:center;gap:6px;">
         <span style="font-size:15px;">💡</span> Set video quality to the highest setting — 180° videos are blurry at lower resolutions.
       </p>
-    </div>
-  </div>
-
-  <!-- Key Decisions -->
-  <div class="project-section">
-    <div class="container">
-      <div class="section-label">UX Decisions</div>
-      <h2 class="section-h2">UX Decisions That Shaped the Product</h2>
-      <div class="decision-cards" style="margin-top:32px;">
-
-        <div class="decision-card reveal">
-          <div class="decision-card-header">
-            <span class="decision-card-num">01</span>
-            <span class="decision-card-title">Putting 180° Front and Centre on the Homepage</span>
-          </div>
-          <div class="decision-cols">
-            <div class="decision-col">
-              <div class="decision-col-label">Challenge</div>
-              <p>The homepage needed to surface the right content clearly — but the app's core value proposition, the 180° stadium view, risked getting buried among highlights, stats, and other content.</p>
-            </div>
-            <div class="decision-col">
-              <div class="decision-col-label">Decision</div>
-              <p>I pushed for a dedicated right column exclusively for 180° content. Working closely with the designer, I advocated for a layout where the app's differentiator was immediately visible — not something users had to discover.</p>
-            </div>
-            <div class="decision-col">
-              <div class="decision-col-label">Outcome</div>
-              <p>The 180° feature was front and centre from day one. Fans arriving at the home page immediately saw what made the app unique, which supported both adoption and PSG's marketing positioning.</p>
-              <span class="decision-result-tag">Core differentiator made immediately visible</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="decision-card reveal reveal-delay-1">
-          <div class="decision-card-header">
-            <span class="decision-card-num">02</span>
-            <span class="decision-card-title">Redesigning the Match List Around a Licensing Problem</span>
-          </div>
-          <div class="decision-cols">
-            <div class="decision-col">
-              <div class="decision-col-label">Challenge</div>
-              <p>When we implemented SSO to protect premium full-replay rights, it had an unintended side effect: free users lost access to highlights and stats — content that should have been freely available to everyone.</p>
-            </div>
-            <div class="decision-col">
-              <div class="decision-col-label">Decision</div>
-              <p>I redesigned the entire match list user flow to cleanly separate free and premium content. Free users retained access to highlights and stats; premium users unlocked full replays. This required both UX work and stakeholder alignment with PSG.</p>
-            </div>
-            <div class="decision-col">
-              <div class="decision-col-label">Outcome</div>
-              <p>A licensing constraint that could have degraded the free experience was turned into a clear, functional tiering model — protecting both user trust and content rights.</p>
-              <span class="decision-result-tag">Free experience preserved without compromising rights</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="decision-card reveal reveal-delay-2">
-          <div class="decision-card-header">
-            <span class="decision-card-num">03</span>
-            <span class="decision-card-title">Cutting the Video Gallery Filters Down to What Matters</span>
-          </div>
-          <div class="decision-cols">
-            <div class="decision-col">
-              <div class="decision-col-label">Challenge</div>
-              <p>The video gallery had accumulated too many filter options. The result was cognitive overload — users faced with too many choices before they could even start browsing content.</p>
-            </div>
-            <div class="decision-col">
-              <div class="decision-col-label">Decision</div>
-              <p>I consolidated the filters down to the essentials: match highlights and immersive content. Everything else was noise. Fewer choices, faster access to what users actually came for.</p>
-            </div>
-            <div class="decision-col">
-              <div class="decision-col-label">Outcome</div>
-              <p>A simpler, faster browsing experience — and a cleaner visual presentation of PSG's content library, which supported the premium positioning of the app overall.</p>
-              <span class="decision-result-tag">Cognitive load reduced, browsing speed improved</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="decision-card reveal reveal-delay-3">
-          <div class="decision-card-header">
-            <span class="decision-card-num">04</span>
-            <span class="decision-card-title">Making the Most of XR's Visual Space</span>
-          </div>
-          <div class="decision-cols">
-            <div class="decision-col">
-              <div class="decision-col-label">Challenge</div>
-              <p>The tabletop and live views were underusing what makes XR different. Stats and lineup panels defaulted to closed — treating the headset like a phone screen, where screen real estate is scarce.</p>
-            </div>
-            <div class="decision-col">
-              <div class="decision-col-label">Decision</div>
-              <p>I pushed for visual stats and a momentum tracker on the timeline slider, and advocated for both lineup and stats panels to open by default. On XR, you have comfortable visual space to absorb more — keeping panels closed just adds a click with no benefit.</p>
-            </div>
-            <div class="decision-col">
-              <div class="decision-col-label">Outcome</div>
-              <p>Users land directly in an information-rich view that takes advantage of the medium. One less interaction barrier — and a live experience that feels genuinely spatial rather than a phone app on a big screen.</p>
-              <span class="decision-result-tag">Richer default view, one fewer click</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <!-- Experience overview -->
-  <div class="project-section">
-    <div class="container">
-      <div class="section-label">Experience Overview</div>
-      <h2 class="section-h2">Four Surfaces, One App</h2>
-      <div class="deliverables-list reveal" style="margin-top:28px;">
-        <div class="deliverable-item">
-          <div class="deliverable-icon">🏠</div>
-          <div class="deliverable-text">
-            <strong>A Home Page Guiding the Experience</strong>
-            <span>The left panel adapts to match status — live match, full replay, pre-match teaser or upcoming fixture. The centre highlights the latest videos; the right panel surfaces exclusive 180° content for immediate access.</span>
-          </div>
-          <div class="deliverable-preview">
-            <img src="../../Brand_assets/My current portfolio/PSG XR Page/Experience overview 1st Pic PSG XR.avif" alt="PSG Home Page" loading="lazy" />
-          </div>
-        </div>
-        <div class="deliverable-item">
-          <div class="deliverable-icon">📅</div>
-          <div class="deliverable-text">
-            <strong>Match List to Track the Team's Progress</strong>
-            <span>Fans browse PSG's full season calendar, review past scores and stats, and access replays in 2D, 3D tabletop, or immersive 180° — revisiting matches at their own pace.</span>
-          </div>
-          <div class="deliverable-preview">
-            <img src="../../Brand_assets/My current portfolio/PSG XR Page/Experience overview 2nd Pic PSG XR.avif" alt="PSG Match List" loading="lazy" />
-          </div>
-        </div>
-        <div class="deliverable-item">
-          <div class="deliverable-icon">🎬</div>
-          <div class="deliverable-text">
-            <strong>Access to Exclusive PSG Content</strong>
-            <span>The video gallery centralises all PSG content across current and past seasons. Users filter by match, season, or format — surfacing 180° highlights, full replays, and premium content.</span>
-          </div>
-          <div class="deliverable-preview">
-            <img src="../../Brand_assets/My current portfolio/PSG XR Page/Experience overview 3rd Pic PSG XR.webp" alt="PSG Video Gallery" loading="lazy" />
-          </div>
-        </div>
-        <div class="deliverable-item">
-          <div class="deliverable-icon">📡</div>
-          <div class="deliverable-text">
-            <strong>A New Way of Broadcasting Football</strong>
-            <span>Five cameras inside Parc des Princes, automatic switching, and spatial audio bring fans closer to the action — combining 2D, 3D tabletop, and 180° stadium experiences in one app.</span>
-          </div>
-          <div class="deliverable-preview">
-            <img src="../../Brand_assets/My current portfolio/PSG XR Page/Experience overview 4th Pic PSG XR.webp" alt="PSG Broadcasting" loading="lazy" />
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 
