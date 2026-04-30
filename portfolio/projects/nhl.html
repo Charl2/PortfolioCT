@@ -90,12 +90,25 @@
       background: rgba(0,90,255,0.08); color: var(--blue); border-radius: 100px;
       font-size: 11px; font-weight: 700; letter-spacing: 0.03em;
     }
+    .nhl-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .nhl-phases-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 32px;
+    }
     @media (max-width: 768px) {
       .decision-card { padding: 22px 20px; }
       .decision-cols { grid-template-columns: 1fr; }
       .decision-col { padding: 0 0 18px; border-left: none !important; }
       .decision-col + .decision-col { padding-left: 0; border-top: 1px solid var(--line); padding-top: 18px; }
       .decision-col:last-child { padding-bottom: 0; }
+      .nhl-stats-grid { grid-template-columns: 1fr; }
+      .nhl-phases-grid { grid-template-columns: 1fr; gap: 24px; }
     }
   </style>
 </head>
@@ -202,7 +215,7 @@
   <!-- Key numbers -->
   <div class="project-section">
     <div class="container">
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;" class="reveal">
+      <div class="nhl-stats-grid reveal">
         <div style="padding:36px;background:var(--blue);border-radius:var(--radius-lg);color:var(--white);text-align:center;">
           <div style="font-family:var(--ff-display);font-size:52px;font-weight:900;margin-bottom:6px;line-height:1;" data-count="1.4" data-suffix="M$" data-decimals="1">1.4M$</div>
           <div style="font-size:14px;opacity:0.8;">Total contract value</div>
@@ -291,7 +304,7 @@
     <div class="container">
       <div class="section-label">UX Audit</div>
       <h2 class="section-h2">Fix blockers first. Then test.</h2>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:32px;">
+      <div class="nhl-phases-grid">
         <div style="border-left:3px solid var(--ink);padding-left:20px;">
           <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;color:var(--ink-mid);text-transform:uppercase;margin-bottom:8px;">Phase 1</div>
           <div style="font-size:16px;font-weight:700;color:var(--ink);margin-bottom:8px;">Full UX Audit</div>
@@ -402,7 +415,7 @@
           <div class="decision-cols">
             <div class="decision-col">
               <div class="decision-col-label">Challenge</div>
-              <p>The original timeline was so cluttered it effectively blocked the feature. The proposed fix was a separate screen — cleaner, but it would break context and add a navigation layer.</p>
+              <p>The original timeline was so cluttered it effectively blocked the feature. The proposed fix was a separate screen. Cleaner, but it would break context and add a navigation layer.</p>
             </div>
             <div class="decision-col">
               <div class="decision-col-label">Decision</div>
