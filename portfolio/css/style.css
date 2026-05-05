@@ -510,7 +510,6 @@ body.cursor-hidden .cursor-ring { opacity: 0; }
 }
 @media (max-width: 480px) {
   .featured-grid .featured-card { flex: 0 0 calc(50% - 8px); }
-  .carousel-track .project-card { flex: 0 0 76vw; }
 }
 
 /* ── Logo Strip ──────────────────────────── */
@@ -1400,13 +1399,14 @@ footer {
 
 @media (max-width: 768px) {
   .logo-item {
-    padding: 0 18px;
+    padding: 0 12px;
     height: 44px;
   }
   .logo-item img {
-    width: 72px;
-    height: 28px;
+    width: 60px;
+    height: 24px;
   }
+  .carousel-track .project-card { flex: 0 0 72vw; }
 
   :root { --nav-h: 60px; }
   .nav { padding: 0 20px; }
