@@ -200,7 +200,6 @@ body.cursor-hidden .cursor-ring { opacity: 0; }
 
 /* ── Hero ─────────────────────────────────── */
 .hero {
-  min-height: 100vh;
   padding-top: var(--nav-h);
   display: flex;
   align-items: center;
@@ -219,7 +218,7 @@ body.cursor-hidden .cursor-ring { opacity: 0; }
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 32px 40px 60px;
+  padding: 60px 40px 24px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
@@ -429,7 +428,7 @@ body.cursor-hidden .cursor-ring { opacity: 0; }
 
 /* ── Featured Clients ────────────────────── */
 .featured-clients {
-  padding: 64px 0 48px;
+  padding: 48px 0;
 }
 .featured-label {
   font-family: var(--ff-display);
@@ -517,7 +516,7 @@ body.cursor-hidden .cursor-ring { opacity: 0; }
 .logo-strip {
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
-  padding: 20px 0;
+  padding: 36px 0;
   overflow: hidden;
   background: var(--white);
 }
@@ -608,7 +607,7 @@ body.cursor-hidden .cursor-ring { opacity: 0; }
 
 /* ── Quote / About ───────────────────────── */
 .about-section {
-  padding: 80px 0 40px;
+  padding: 100px 0;
 }
 
 /* Pull quote */
@@ -854,7 +853,7 @@ body.cursor-hidden .cursor-ring { opacity: 0; }
 
 /* ── Contact ─────────────────────────────── */
 .contact-section {
-  padding: 120px 0 80px;
+  padding: 80px 0;
   text-align: center;
 }
 .contact-section h2 {
@@ -1501,7 +1500,7 @@ footer {
 
 /* Uniform card size in carousel */
 .carousel-track .project-card {
-  flex: 0 0 clamp(280px, 36vw, 420px);
+  flex: 0 0 clamp(280px, 41vw, 455px);
   scroll-snap-align: start;
   /* reset any grid-based styles */
   grid-column: unset;
