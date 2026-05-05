@@ -10,7 +10,7 @@
     .linkedin-embed-wrap { border-radius: var(--radius-lg); overflow: hidden; display: flex; justify-content: center; padding: 20px; background: var(--white); border: 1px solid var(--line); }
     .design-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
     .design-grid img { width: 100%; border-radius: var(--radius); display: block; }
-    @media (max-width: 768px) { .design-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 768px) { .design-grid { grid-template-columns: 1fr 1fr; } .method-cards-col { gap: 10px !important; } }
     @media (max-width: 480px) { .design-grid { grid-template-columns: 1fr; } }
     .section-divider {
       display: flex; align-items: center; gap: 24px;
@@ -202,18 +202,25 @@
           Participants were recruited across three mobility profiles: cyclists, bus commuters, and car drivers, each with a different relationship to road safety alerts. 22 participants completed the full protocol over two days.
         </p>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;" class="reveal">
-        <div class="method-card">
-          <div class="method-label">Survey</div>
-          <div class="method-desc">Baseline + persona profiling before the field session</div>
+      <div class="content-grid reveal" style="align-items:center;">
+        <div class="method-cards-col" style="display:flex;flex-direction:column;gap:60px;">
+          <div class="method-card">
+            <div class="method-label">Survey</div>
+            <div class="method-desc">Baseline + persona profiling before the field session</div>
+          </div>
+          <div class="method-card">
+            <div class="method-label">Field</div>
+            <div class="method-desc">Live scenario testing in real commuting conditions</div>
+          </div>
+          <div class="method-card">
+            <div class="method-label">Debrief</div>
+            <div class="method-desc">Structured post-session interview per participant</div>
+          </div>
         </div>
-        <div class="method-card">
-          <div class="method-label">Field</div>
-          <div class="method-desc">Live scenario testing in real commuting conditions</div>
-        </div>
-        <div class="method-card">
-          <div class="method-label">Debrief</div>
-          <div class="method-desc">Structured post-session interview per participant</div>
+        <div>
+          <img src="../../Brand_assets/My current portfolio/V2X Project Page/TBM APP integration pic.avif"
+               alt="V2X field testing in Bordeaux" loading="lazy"
+               style="width:100%;height:auto;display:block;border-radius:var(--radius-lg);" />
         </div>
       </div>
     </div>
@@ -508,10 +515,6 @@
       <h2 class="section-h2">V2X Live in the TBM App</h2>
       <div class="section-body" style="max-width:700px;margin-bottom:32px;">
         <p>The final design integrates the V2X SDK seamlessly into the TBM mobility app. The solution is now live in Bordeaux, serving real commuters with contextual safety alerts during their daily journeys, without disrupting the core app experience.</p>
-      </div>
-      <div class="media-block reveal">
-        <img src="../../Brand_assets/My current portfolio/V2X Project Page/TBM APP integration pic.avif"
-             alt="TBM App V2X Integration" loading="lazy" />
       </div>
     </div>
   </div>
