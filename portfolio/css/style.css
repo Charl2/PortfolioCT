@@ -1398,6 +1398,15 @@ footer {
 }
 
 @media (max-width: 768px) {
+  .logo-item {
+    padding: 0 18px;
+    height: 44px;
+  }
+  .logo-item img {
+    width: 72px;
+    height: 28px;
+  }
+
   :root { --nav-h: 60px; }
   .nav { padding: 0 20px; }
   .nav-links { display: none; }
