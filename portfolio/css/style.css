@@ -1406,7 +1406,7 @@ footer {
     width: 60px;
     height: 24px;
   }
-  .carousel-track .project-card { flex: 0 0 72vw; }
+  .carousel-track .project-card { flex: 0 0 75vw; }
 
   :root { --nav-h: 60px; }
   .nav { padding: 0 20px; }
@@ -1559,8 +1559,17 @@ footer {
   /* On mobile touch drag is natural; hide arrows and fade */
   .carousel-controls { display: none; }
   .projects-carousel::after { display: none; }
-  .carousel-track { padding-right: 20px; }
-  .carousel-track .project-card { flex: 0 0 72vw; }
+  /* Break carousel out of container padding so it spans full viewport */
+  .projects-carousel {
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+  .carousel-track {
+    padding-left: 20px;
+    padding-right: 20px;
+    scroll-padding-left: 20px;
+  }
+  .carousel-track .project-card { flex: 0 0 75vw; }
 }
 
 /* ── Misc Utilities ──────────────────────── */
