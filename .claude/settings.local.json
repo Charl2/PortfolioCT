@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(identify \"/Users/charlestaylor/Desktop/Claude Apps/Brand_assets/My current portfolio/Picture of me.avif\")",
+      "Bash(open \"/Users/charlestaylor/Desktop/Claude Apps/portfolio/index.html\")",
+      "Bash(gh api:*)",
+      "Bash(du -sh \"/Users/charlestaylor/Desktop/My Portfolio/Brand_assets/My current portfolio/PSG XR Page/PSG_Matchlist_360_v1 \\(1\\).mp4\")",
+      "Bash(git commit -m ' *)",
+      "Bash(git commit *)"
+    ]
+  }
+}
