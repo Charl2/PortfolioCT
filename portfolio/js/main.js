@@ -7,6 +7,7 @@
   const dot  = document.querySelector('.cursor-dot');
   const ring = document.querySelector('.cursor-ring');
   if (!dot || !ring) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   let mouseX = -100, mouseY = -100;
   let ringX  = -100, ringY  = -100;
@@ -27,7 +28,7 @@
   animateRing();
 
   // Hover states
-  const hoverTargets = 'a, button, .project-card, .deliverable-item, .linkedin-link-card, .nav-cta, .try-widget-btn';
+  const hoverTargets = 'a, button, .project-card, .deliverable-item, .linkedin-link-card, .nav-cta, .try-widget-btn, .carousel-btn';
   document.querySelectorAll(hoverTargets).forEach(el => {
     el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
     el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
@@ -56,6 +57,7 @@
   btn.addEventListener('click', () => {
     open = !open;
     menu.classList.toggle('open', open);
+    menu.setAttribute('aria-hidden', String(!open));
     document.body.style.overflow = open ? 'hidden' : '';
     btn.querySelectorAll('span').forEach((s, i) => {
       if (open) {
@@ -72,6 +74,7 @@
     a.addEventListener('click', () => {
       open = false;
       menu.classList.remove('open');
+      menu.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
       btn.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
     });
@@ -148,6 +151,10 @@
     if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto')) return;
     a.addEventListener('click', e => {
       e.preventDefault();
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        window.location.href = href;
+        return;
+      }
       document.body.style.opacity = '0';
       document.body.style.transition = 'opacity 0.3s ease';
       setTimeout(() => window.location.href = href, 300);
@@ -196,6 +203,13 @@
       const target = parseFloat(el.dataset.count);
       const suffix = el.dataset.suffix || '';
       const decimals = parseInt(el.dataset.decimals || '0', 10);
+
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        el.textContent = target.toFixed(decimals) + suffix;
+        observer.unobserve(el);
+        return;
+      }
+
       const duration = 2500;
       const startTime = performance.now();
 
@@ -212,6 +226,62 @@
   }, { threshold: 0.5 });
 
   els.forEach(el => observer.observe(el));
+})();
+
+/* ── Carousels ───────────────────────────── */
+(function initCarousels() {
+  document.querySelectorAll('.projects-carousel').forEach(carousel => {
+    const track    = carousel.querySelector('.carousel-track');
+    const container = carousel.parentElement; // .container
+    const prevBtn  = container.querySelector('.carousel-prev');
+    const nextBtn  = container.querySelector('.carousel-next');
+    if (!track) return;
+
+    const getStep = () => {
+      const card = track.querySelector('.project-card');
+      return card ? card.offsetWidth + 20 : 360;
+    };
+
+    /* Arrow navigation */
+    prevBtn?.addEventListener('click', () => track.scrollBy({ left: -getStep(), behavior: 'smooth' }));
+    nextBtn?.addEventListener('click', () => track.scrollBy({ left:  getStep(), behavior: 'smooth' }));
+
+    /* Button disabled states */
+    const updateBtns = () => {
+      if (prevBtn) prevBtn.disabled = track.scrollLeft <= 0;
+      if (nextBtn) nextBtn.disabled = track.scrollLeft >= track.scrollWidth - track.clientWidth - 2;
+    };
+    track.addEventListener('scroll', updateBtns, { passive: true });
+    updateBtns();
+
+    /* Drag to scroll */
+    let startX = 0, startScroll = 0, isDragging = false, hasDragged = false;
+
+    track.addEventListener('mousedown', e => {
+      isDragging  = true;
+      hasDragged  = false;
+      startX      = e.pageX;
+      startScroll = track.scrollLeft;
+      track.classList.add('is-dragging');
+    });
+
+    window.addEventListener('mousemove', e => {
+      if (!isDragging) return;
+      const dx = e.pageX - startX;
+      if (Math.abs(dx) > 4) hasDragged = true;
+      track.scrollLeft = startScroll - dx;
+    });
+
+    window.addEventListener('mouseup', () => {
+      isDragging = false;
+      track.classList.remove('is-dragging');
+    });
+
+    /* Prevent card link clicks after a drag */
+    track.addEventListener('click', e => {
+      if (hasDragged) { e.preventDefault(); e.stopPropagation(); }
+    }, true);
+  });
 })();
 
 /* Entry animation */
