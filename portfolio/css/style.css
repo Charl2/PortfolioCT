@@ -1560,7 +1560,7 @@ footer {
   .carousel-controls { display: none; }
   .projects-carousel::after { display: none; }
   .carousel-track { padding-right: 20px; }
-  .carousel-track .project-card { flex: 0 0 82vw; }
+  .carousel-track .project-card { flex: 0 0 72vw; }
 }
 
 /* ── Misc Utilities ──────────────────────── */
