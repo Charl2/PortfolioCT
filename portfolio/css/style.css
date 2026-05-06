@@ -1583,6 +1583,83 @@ footer {
   .carousel-track .project-card { flex: 0 0 70vw; }
 }
 
+/* ── Systems & Automation section ───────── */
+.systems-section {
+  padding: 40px 0 64px;
+  border-top: 1px solid var(--line);
+}
+.systems-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.systems-section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-mid);
+}
+.systems-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+.systems-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 24px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.systems-card:hover {
+  border-color: var(--blue-mid);
+  box-shadow: var(--shadow);
+}
+.systems-card-tags {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.systems-card-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-mid);
+  background: var(--line);
+  padding: 3px 8px;
+  border-radius: 100px;
+}
+.systems-card-stack {
+  font-size: 11px;
+  color: var(--ink-light);
+}
+.systems-card-title {
+  font-family: var(--ff-display);
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.systems-card-desc {
+  font-size: 13px;
+  color: var(--ink-mid);
+  line-height: 1.5;
+}
+.systems-card-cta {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--blue);
+  margin-top: 4px;
+}
+
 /* ── Misc Utilities ──────────────────────── */
 .text-blue    { color: var(--blue); }
 .mt-8  { margin-top: 8px; }
