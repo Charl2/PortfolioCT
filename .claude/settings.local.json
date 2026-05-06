@@ -6,7 +6,8 @@
       "Bash(gh api:*)",
       "Bash(du -sh \"/Users/charlestaylor/Desktop/My Portfolio/Brand_assets/My current portfolio/PSG XR Page/PSG_Matchlist_360_v1 \\(1\\).mp4\")",
       "Bash(git commit -m ' *)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash(git rm *)"
     ]
   }
 }
