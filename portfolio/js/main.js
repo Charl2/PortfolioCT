@@ -284,6 +284,33 @@
   });
 })();
 
+/* ── Copy email to clipboard ─────────────── */
+(function initCopyEmail() {
+  const btn = document.querySelector('.btn-copy-email');
+  if (!btn) return;
+
+  btn.addEventListener('click', () => {
+    const email = btn.dataset.email;
+    const label = btn.querySelector('.btn-copy-label');
+    const iconMail = btn.querySelector('.icon-mail');
+    const iconCheck = btn.querySelector('.icon-check');
+
+    navigator.clipboard.writeText(email).then(() => {
+      btn.classList.add('copied');
+      label.textContent = 'Copied!';
+      iconMail.style.display = 'none';
+      iconCheck.style.display = '';
+
+      setTimeout(() => {
+        btn.classList.remove('copied');
+        label.textContent = email;
+        iconMail.style.display = '';
+        iconCheck.style.display = 'none';
+      }, 2000);
+    });
+  });
+})();
+
 /* Entry animation */
 window.addEventListener('load', () => {
   document.body.style.opacity = '1';

@@ -881,6 +881,17 @@ body.cursor-hidden .cursor-ring { opacity: 0; }
   gap: 16px;
   flex-wrap: wrap;
 }
+.btn-copy-email {
+  border: none;
+  cursor: none;
+}
+.btn-copy-email.copied {
+  background: #1a9e5c;
+  box-shadow: 0 8px 24px rgba(26, 158, 92, 0.3);
+}
+.btn-copy-email.copied:hover {
+  background: #158a4f;
+}
 
 /* ── Footer ──────────────────────────────── */
 footer {
