@@ -5,7 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Freelancing Platform Redesign — Charles Taylor</title>
   <link rel="stylesheet" href="../css/style.css" />
-  <style>body { opacity: 0; }</style>
+  <style>
+    body { opacity: 0; }
+    /* Scroll-reveal version of the hover image expand */
+    .deliverable-item.in-view {
+      border-color: var(--blue-mid);
+      box-shadow: var(--shadow);
+    }
+    .deliverable-item.in-view .deliverable-preview {
+      max-height: 640px;
+      opacity: 1;
+      margin-top: 16px;
+    }
+    .deliverable-item.in-view .deliverable-preview img,
+    .deliverable-item.in-view .deliverable-preview video {
+      transform: scale(1.0);
+    }
+  </style>
 </head>
 <body>
   <div class="cursor-dot"></div>
@@ -209,5 +225,21 @@
     <a href="../index.html" style="color:var(--blue);">← Back to portfolio</a>
   </footer>
   <script src="../js/main.js"></script>
+  <script>
+    // Scroll-reveal for deliverable images (test — WEEM page only)
+    (function () {
+      const items = document.querySelectorAll('.deliverable-item');
+      if (!items.length) return;
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach((entry, i) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => entry.target.classList.add('in-view'), i * 120);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.35 });
+      items.forEach(el => observer.observe(el));
+    })();
+  </script>
 </body>
 </html>
